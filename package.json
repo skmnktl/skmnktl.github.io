@@ -6,9 +6,10 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "deploy": "push-dir --dir=build --branch=gh-pages --allow-unclean --cleanup"
+    "deploy": "gh-pages -d .output/public"
   },
   "devDependencies": {
+    "gh-pages": "^4.0.0",
     "html2pdf.js": "^0.10.1",
     "nuxt": "3.0.0",
     "push-dir": "^0.4.1"
