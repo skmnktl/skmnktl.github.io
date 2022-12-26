@@ -1,0 +1,2 @@
+yarn generate
+yarn deploy
