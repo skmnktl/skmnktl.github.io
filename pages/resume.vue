@@ -422,7 +422,7 @@ div {
   min-width: 0;
   background-color: #e4ebf1;
   min-height: 100vh;
-  min-widht: 100vw;
+  min-width: 100vw;
 }
 </style>
 
