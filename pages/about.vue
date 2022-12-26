@@ -1,7 +1,7 @@
 <template>
     <div class="aboutme">
       <span id="aboutmeimage">
-        <img class="about" src="require(`../static/winding_zion_road.jpg`)" />
+        <img class="about" src="../static/winding_zion_road.jpg" />
       </span>
       <span id="aboutmedesc">
         <br />

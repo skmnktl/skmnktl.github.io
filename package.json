@@ -5,11 +5,15 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "deploy": "push-dir --dir=build --branch=gh-pages --allow-unclean --cleanup"
   },
   "devDependencies": {
-    "@nuxtjs/fontawesome": "^1.1.2",
     "html2pdf.js": "^0.10.1",
-    "nuxt": "3.0.0"
+    "nuxt": "3.0.0",
+    "push-dir": "^0.4.1"
+  },
+  "dependencies": {
+    "@fortawesome/vue-fontawesome": "^3.0.2"
   }
 }
