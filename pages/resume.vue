@@ -42,9 +42,7 @@
                     <div class="css-vurnku">
                       <p class="css-1swgbfb">
                         <strong class="css-aewju"
-                          >Built and deployed microservices for live channel
-                          streaming on Samsung TV+ app ecosystem
-                          including</strong
+                          >Built and deployed microservices for Samsung TV+ streaming service</strong
                         >
                       </p>
                       <ul class="css-1yh09yi">
@@ -132,9 +130,9 @@
                       <ul class="css-1yh09yi">
                         <li class="css-1f0c8ll">
                           Produced 5 datasets linking Senate speeches and
-                          speakers to Senate campaign contributions and
+                          speakers to campaign contributions and
                           businesses within Senators’ constituencies; instituted
-                          processes that reduced data ingestion time from months
+                          processes reducing data ingestion time from months
                           to days making datasets useful for years to come
                         </li>
                         <li class="css-1f0c8ll">
@@ -254,7 +252,7 @@
                     </a>
                   </h2>
                   <div class="css-sagp40">
-                    Senior Data Analyst
+                    Sr. Data Analyst
                     <div class="css-1kvlhqq">|</div>
                     <br class="css-1bmsfsu" /><span
                       >Jan 2016
@@ -362,22 +360,18 @@
               <section class="css-gz6vba">
                 <h2 class="css-1wvg85o">Skills</h2>
                 <ul class="css-10c7d0b">
-                  <li class="css-1w3ob58">Python</li>
-                  <li class="css-1w3ob58">Numpy</li>
-                  <li class="css-1w3ob58">PyTorch</li>
-                  <li class="css-1w3ob58">Flask</li>
+                  <li class="css-1w3ob58">Python (Numpy/PyTorch/Pandas/Flask/FastAPI)</li>
                   <li class="css-1w3ob58">SQL</li>
                   <li class="css-1w3ob58">C++</li>
                   <li class="css-1w3ob58">C</li>
-                  <li class="css-1w3ob58">Docker</li>
+                  <li class="css-1w3ob58">Rust</li>
                   <li class="css-1w3ob58">Go</li>
                   <li class="css-1w3ob58">Haskell</li>
+                  <li class="css-1w3ob58">Docker/Docker Compose</li>
                   <li class="css-1w3ob58">Latex</li>
-                  <li class="css-1w3ob58">Google BigQuery</li>
-                  <li class="css-1w3ob58">Amazon AWS</li>
-                  <li class="css-1w3ob58">Rust</li>
-                  <li class="css-1w3ob58">Web Design</li>
-                  <li class="css-1w3ob58">JavaScript/NodeJS</li>
+                  <li class="css-1w3ob58">Web Dev (JS/HTML/CSS/VueJS/Nuxt)</li>
+                  <li class="css-1w3ob58">BigQuery</li>
+                  <li class="css-1w3ob58-end">AWS</li>
                 </ul>
               </section>
             </div>
@@ -386,21 +380,21 @@
       </div>
     <span id="right">
       <button @click="exportToPDF" class="pdfButton">
-        <font-awesome-icon icon="fa-solid fa-file-pdf" />
+        <font-awesome-icon :icon="['fas', 'fa-file-pdf']" />
       </button>
     </span>
   </div>
 </template>
 
 <script>
-import html2pdf from "html2pdf.js";
+import html2pdf from 'html2pdf.js'
+
 export default {
   name: "Resume",
   methods: {
-      exportToPDF() {
+     exportToPDF() {
         console.log("Running pdfer.");
         html2pdf(document.getElementById("resume"), {
-        margin: 1,
         filename: "resume.pdf",
       });
       console.log("Running pdfer again.");
@@ -592,8 +586,8 @@ div {
   max-width: 800px;
   padding-left: 24px;
   padding-right: 24px;
-  padding-top: 20px;
-  padding-bottom: 40px;
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 @media screen and (min-width: 768px) {
   .css-qz2fpi {
@@ -626,12 +620,12 @@ div {
   line-height: 1;
   font-family: "Alegreya Sans", sans-serif;
   text-transform: uppercase;
-  font-size: 26px;
-  -webkit-letter-spacing: 1.3px;
-  -moz-letter-spacing: 1.3px;
-  -ms-letter-spacing: 1.3px;
-  letter-spacing: 1.3px;
-  margin-bottom: 24px;
+  font-size: 20px;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
   display: inline;
 }
 </style>
@@ -641,11 +635,11 @@ div {
   margin: 0;
   min-width: 0;
   font-family: "Alegreya Sans", sans-serif;
-  line-height: 1.5;
+  line-height: 1.4;
   font-weight: 400;
   color: #000000;
-  font-size: 14px;
-  margin-bottom: 7px;
+  font-size: 13px;
+  margin-bottom: 6px;
 }
 </style>
   <style data-emotion-css="1cuak6k">
@@ -670,11 +664,11 @@ div {
   margin: 0;
   min-width: 0;
   font-family: "Alegreya Sans", sans-serif;
-  line-height: 1.5;
+  line-height: 1.4;
   font-weight: 400;
   color: #000000;
   font-size: 14px;
-  margin-bottom: 7px;
+  margin-bottom: 6px;
   color: #676868;
 }
 </style>
@@ -690,7 +684,7 @@ div {
   box-sizing: border-box;
   margin: 0;
   min-width: 0;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 </style>
   <style data-emotion-css="1wvg85o">
@@ -700,18 +694,16 @@ div {
   min-width: 0;
   font-family: "Alegreya Sans SC", sans-serif;
   font-weight: 700;
-  line-height: 1.5;
   color: #000000;
   font-weight: 700;
-  line-height: 1.5;
-  font-family: "Alegreya Sans SC", sans-serif;
+  line-height: 1.4;
   text-transform: uppercase;
   font-size: 12px;
   -webkit-letter-spacing: 1.2px;
   -moz-letter-spacing: 1.2px;
   -ms-letter-spacing: 1.2px;
   letter-spacing: 1.2px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 </style>
   <style data-emotion-css="19ug6vd">
@@ -719,7 +711,7 @@ div {
   box-sizing: border-box;
   margin: 0;
   min-width: 0;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
   page-break-inside: avoid;
 }
 </style>
@@ -733,7 +725,7 @@ div {
   line-height: 1;
   color: #000000;
   font-weight: 700;
-  line-height: 24px;
+  line-height: 20px;
   font-family: "Alegreya Sans", sans-serif;
   text-transform: uppercase;
   font-size: 16px;
@@ -766,8 +758,8 @@ div {
   margin: 0;
   min-width: 0;
   color: #3e3e3e;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 13px;
+  line-height: 20px;
   margin-bottom: 4px;
   font-family: "Alegreya Sans SC", sans-serif;
 }
@@ -807,7 +799,7 @@ div {
   line-height: 1.5;
   font-weight: 400;
   color: #000000;
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 4px;
 }
 </style>
@@ -836,7 +828,7 @@ div {
   line-height: 1.5;
   font-weight: 400;
   color: #000000;
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 4px;
   margin-left: 30px;
   padding-left: 0;
@@ -868,6 +860,7 @@ div {
   margin: 0;
   padding: 0;
 }
+
 </style>
 <style data-emotion-css="1w3ob58">
 .css-1w3ob58 {
@@ -878,16 +871,38 @@ div {
   line-height: 0.1;
   font-weight: 400;
   color: #000000;
-  font-size: 14px;
-  margin-bottom: 1px;
+  margin-bottom: 0px;
+  display: inline-block;
+  color: #000000;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  font-size: 9px;
+  text-decoration: none;
+}
+
+.css-1w3ob58-end {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  font-family: "Alegreya Sans", sans-serif;
+  line-height: 0.1;
+  font-weight: 400;
+  color: #000000;
+  font-size: 9px;
   display: inline-block;
   color: #000000;
   padding-top: 5px;
   padding-bottom: 0px;
-  margin-right: 24px;
+  margin-right: 12px;
   margin-bottom: 12px;
-  font-size: 14px;
+  font-size: 12px;
   text-decoration: none;
+}
+
+.css-1w3ob58::after{
+  content: " |"
 }
 </style>
   <style data-emotion-css="1si0cz4">
@@ -988,7 +1003,7 @@ h1, h2, h3, section {
   color: black;
   padding: 0px 0px;
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
   margin: 0px 0px;
   opacity: 1;
   transition: 0.3s;

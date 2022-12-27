@@ -2,37 +2,37 @@
   <div id="photos">
     <span class="container" key="1">
       <figure class="figurefx pushup">
-        <img src="../static/1.jpg" class="image" />
+        <img src="~/assets/images/1.jpg" class="image" />
         <figcaption>Zion National Park, Utah</figcaption>
       </figure>
     </span>
     <span class="container" key="2">
       <figure class="figurefx pushup">
-        <img src="../static/2.jpg" class="image" />
+        <img src="~/assets/images/2.jpg" class="image" />
         <figcaption>Great Smoky Mountains National Park</figcaption>
       </figure>
     </span>
     <span class="container" key="3">
       <figure class="figurefx pushup">
-        <img src="../static/3.jpg" class="image" />
+        <img src="~/assets/images/3.jpg" class="image" />
         <figcaption>śarasvati vīṇa</figcaption>
       </figure>
     </span>
     <span class="container" key="4">
       <figure class="figurefx pushup">
-        <img src="../static/4.jpg" class="image" />
+        <img src="~/assets/images/4.jpg" class="image" />
         <figcaption>Lake Tahoe</figcaption>
       </figure>
     </span>
     <span class="container" key="5">
       <figure class="figurefx pushup">
-        <img src="../static/5.jpg" class="image" />
+        <img src="~/assets/images/5.jpg" class="image" />
         <figcaption>Chantilly, VA</figcaption>
       </figure>
     </span>
     <span class="container" key="6">
       <figure class="figurefx pushup">
-        <img src="../static/6.jpg" class="image" />
+        <img src="~/assets/images/6.jpg" class="image" />
         <figcaption>Heraklion, Greece</figcaption>
       </figure>
     </span>
