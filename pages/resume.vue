@@ -379,14 +379,16 @@
         </div>
       </div>
     <span id="right">
-      <button @click="exportToPDF" class="pdfButton">
+      <!--
+        <button @click="exportToPDF" class="pdfButton">
         <font-awesome-icon :icon="['fas', 'fa-file-pdf']" />
       </button>
+      -->
     </span>
   </div>
 </template>
 
-<script>
+<!--<script>
 import html2pdf from 'html2pdf.js'
 
 export default {
@@ -402,6 +404,7 @@ export default {
   },
 };
 </script>
+-->
 
 <style scoped>
 div {
