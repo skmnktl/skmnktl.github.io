@@ -1,50 +1,61 @@
 <template>
   <div class="toolbar">
-    <span id="name">
-      śrīnivāsa kaśyap munukutla
-    </span>
+    <span id="name"> śrīnivāsa kaśyap munukutla </span>
     <span id="links">
-      <button class="button" style="vertical-align:middle"> <span><NuxtLink to="/" align="right" style="text-decoration: none;">
-      about me 
-      </NuxtLink>
-      </span>
+      <button class="button" style="vertical-align: middle">
+        <span
+          ><NuxtLink to="/" align="right" style="text-decoration: none">
+            about me
+          </NuxtLink>
+        </span>
       </button>
-      <button class="button" style="vertical-align:middle"> <span><NuxtLink to="/resume" align="right" style="text-decoration: none;">
-      resume 
-      </NuxtLink>
-      </span>
+      <button class="button" style="vertical-align: middle">
+        <span
+          ><NuxtLink to="/resume" align="right" style="text-decoration: none">
+            resume
+          </NuxtLink>
+        </span>
       </button>
-      <button class="button" style="vertical-align:middle"> <span><NuxtLink to="/photography" align="right" style="text-decoration: none;">
-      photography 
-      </NuxtLink>
-      </span>
+      <button class="button" style="vertical-align: middle">
+        <span
+          ><NuxtLink
+            to="/photography"
+            align="right"
+            style="text-decoration: none"
+          >
+            photography
+          </NuxtLink>
+        </span>
       </button>
     </span>
-</div>
+  </div>
 </template>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.toolbar{
+.toolbar {
   float: left;
   width: 100%;
   clear: none;
   display: grid;
   grid-template-columns: 50% 50%;
-  font-family: 'Alegreya Sans', sans-serif;
+  font-family: "Alegreya Sans", sans-serif;
 }
 #name {
   float: left;
   font-size: 1em;
   align-content: center;
   font-weight: medium;
-  font-family: 'Alegreya Sans SC', sans-serif;
+  font-family: "Alegreya Sans SC", sans-serif;
   vertical-align: bottom;
+  margin: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
-#links{
+#links {
   color: rgb(109, 110, 110);
   float: left;
-  font-family: 'Alegreya Sans', sans-serif;
+  font-family: "Alegreya Sans", sans-serif;
   font-size: 1em;
   text-decoration: none;
   vertical-align: bottom;
@@ -64,7 +75,7 @@
   padding-left: 10px;
   background-color: transparent;
   color: black;
-  font-family: 'Alegreya Sans';
+  font-family: "Alegreya Sans", sans-serif;
 }
 
 .button span {
@@ -75,7 +86,7 @@
 }
 
 .button span:after {
-  content: '\00bb';
+  content: "\00bb";
   position: absolute;
   opacity: 0;
   top: 0;
