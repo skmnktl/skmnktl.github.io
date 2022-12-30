@@ -9,6 +9,7 @@
     "deploy": "gh-pages -d .output/public"
   },
   "devDependencies": {
+    "@nuxt/content": "^2.3.0",
     "@nuxt/image-edge": "^1.0.0-27840416.dc1ed65",
     "@nuxtjs/google-fonts": "^2.0.0",
     "gh-pages": "^4.0.0",

@@ -1,6 +1,3 @@
 <template>
-    <div>
-        <Toolbar />
-        
-    </div>
+    <Posts />
 </template>

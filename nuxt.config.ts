@@ -16,6 +16,9 @@ export default defineNuxtConfig({
         '@fortawesome/fontawesome-svg-core/styles.css',
         '~/assets/fonts/alegreya.css'
     ],
+    modules: [
+        '@nuxt/content'
+    ]
     /*image: {
         dir: 'assets/images'
       },

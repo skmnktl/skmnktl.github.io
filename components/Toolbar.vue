@@ -27,6 +27,17 @@
           </NuxtLink>
         </span>
       </button>
+      <button class="button" style="vertical-align: middle">
+        <span
+          ><NuxtLink
+            to="/writing"
+            align="right"
+            style="text-decoration: none"
+          >
+            writing
+          </NuxtLink>
+        </span>
+      </button>
     </span>
   </div>
 </template>
