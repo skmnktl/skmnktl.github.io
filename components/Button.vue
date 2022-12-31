@@ -1,16 +1,13 @@
 <template>
 <button class="button" style="vertical-align: middle">
-  <div id={{id}}>
-    {{ title }}
-  </div>
-  </button>
+  <font-awesome-icon :icon="['fa-solid','fa-pen-nib']" /> {{ title }}
+</button>
 </template>
 
 <script>
 
 export default {
   props: {
-    path: String,
     id: String,
     title: String
   }
@@ -20,22 +17,12 @@ export default {
 
 
 <style scoped>
-.left {
-  vertical-align: top;
-  text-align: left;
-}
-.posts {
-  width: 100%;
-  text-align: left;
-  display: grid;
-  grid-template-columns: 15% 85%;
-}
 .button {
   display: inline-block;
   border-radius: 4px;
   border: none;
   text-align: center;
-  font-size: 1em;
+  font-size: 0.75em;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -43,7 +30,7 @@ export default {
   padding-left: 10px;
   background-color: transparent;
   color: blue;
-  font-family: "Alegreya Sans", sans-serif;
+  font-family: "Alegreya Sans SC", sans-serif;
 }
 
 .button span {

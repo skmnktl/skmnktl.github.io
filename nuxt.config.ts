@@ -18,7 +18,8 @@ export default defineNuxtConfig({
     ],
     modules: [
         '@nuxt/content'
-    ]
+    ],
+    target: 'static'
     /*image: {
         dir: 'assets/images'
       },

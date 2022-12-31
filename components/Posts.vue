@@ -1,6 +1,7 @@
 <template>
   <div class="posts">
     <span id="left">
+      <h1> Posts </h1>
       <Button id="interview" 
         title="Technical Interview Framework" 
         @click="changeDisplayedContent('interviewing')" />
@@ -8,11 +9,12 @@
         title="Topics for ML Interview Preparation" 
         @click="changeDisplayedContent('ml_interview')" />
     </span>
-      <span id="right">
-              <ContentDoc :path="contentPath">
-              <template #not-found>
-              </template>
-              </ContentDoc>
+    <span id="right">
+      <ContentDoc :path="contentPath">
+        <template #not-found>
+          Click to display a post. 
+        </template>
+      </ContentDoc>
       </span>
   </div>
 </template>
@@ -35,7 +37,10 @@ export default {
 
 
 <style scoped>
-.left {
+h1 {
+    margin:0;
+}
+#left {
   vertical-align: top;
   text-align: left;
 }
