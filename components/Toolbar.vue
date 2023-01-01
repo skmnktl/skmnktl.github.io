@@ -51,6 +51,7 @@
   display: grid;
   grid-template-columns: 50% 50%;
   font-family: "Alegreya Sans", sans-serif;
+  color: black;
 }
 #name {
   float: left;
@@ -64,13 +65,13 @@
   padding-left: 10px;
 }
 #links {
-  color: rgb(109, 110, 110);
   float: left;
   font-family: "Alegreya Sans", sans-serif;
   font-size: 1em;
   text-decoration: none;
   vertical-align: bottom;
   text-align: right;
+  color: black;
 }
 
 .button {

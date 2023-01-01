@@ -1,6 +1,6 @@
 <template>
 <button class="button" style="vertical-align: middle">
-  <font-awesome-icon :icon="['fa-solid','fa-pen-nib']" /> {{ title }}
+  {{ title }}
 </button>
 </template>
 
@@ -14,7 +14,6 @@ export default {
 }
 
 </script>
-
 
 <style scoped>
 .button {

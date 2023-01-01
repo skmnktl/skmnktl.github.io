@@ -1,6 +1,7 @@
 <template>
   <div class="posts">
     <span id="left">
+      <br>
       <h1> Posts </h1>
       <Button id="interview" 
         title="Technical Interview Framework" 
@@ -12,6 +13,8 @@
     <span id="right">
       <ContentDoc :path="contentPath">
         <template #not-found>
+          <br> 
+          <br>
           Click to display a post. 
         </template>
       </ContentDoc>
@@ -35,8 +38,8 @@ export default {
 }
 </script>
 
-
 <style scoped>
+
 h1 {
     margin:0;
 }

@@ -1,7 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     app: {
-        //baseURL: '/skmnktl.github.io/',
         head: {
             link: [{
                 rel: 'stylesheet',
@@ -13,18 +12,9 @@ export default defineNuxtConfig({
         },
     },
     css: [
-        '@fortawesome/fontawesome-svg-core/styles.css',
         '~/assets/fonts/alegreya.css'
     ],
     modules: [
         '@nuxt/content'
     ],
-    target: 'static'
-    /*image: {
-        dir: 'assets/images'
-      },
-    modules: [
-        '@nuxt/image',
-    ],
-    */
 });

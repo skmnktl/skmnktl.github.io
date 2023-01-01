@@ -58,7 +58,7 @@
                 <div class="css-19ug6vd">
                   <h2 class="css-1c09ann">UChicago CS Department</h2>
                   <div class="css-sagp40">
-                    Research Engineer for Prof. Chenhao Tan
+                    Research Engineer, NLP for Prof. Chenhao Tan
                     <div class="css-1kvlhqq">| </div>
                     <br class="css-1bmsfsu" /><span
                       >Mar 2022
@@ -109,7 +109,7 @@
                 <div class="css-19ug6vd">
                   <h2 class="css-1c09ann">UChicago Booth School of Business</h2>
                   <div class="css-sagp40">
-                    Research Engineer for Prof. Jessica Jeffers
+                    Research Engineer, Finance for Prof. Jessica Jeffers
                     <div class="css-1kvlhqq">| </div>
                     <br class="css-1bmsfsu" /><span
                       >Jan 2020
@@ -201,7 +201,7 @@
                 <div class="css-19ug6vd">
                   <h2 class="css-1c09ann">Stanford University GSB</h2>
                   <div class="css-sagp40">
-                    Research Engineer for Prof. Amir Goldberg
+                    Research Engineer, Computational Sociology for Prof. Amir Goldberg
                     <div class="css-1kvlhqq">| </div>
                     <br class="css-1bmsfsu" /><span
                       >Jul 2016
@@ -358,7 +358,7 @@
                 </div>
               </section>
               <section class="css-gz6vba">
-                <h2 class="css-1wvg85o">Skills</h2>
+                <h1 class="css-1wvg85o">Skills</h1>
                 <ul class="css-10c7d0b">
                   <li class="css-1w3ob58">Python (Numpy/PyTorch/Pandas/Flask/FastAPI)</li>
                   <li class="css-1w3ob58">SQL</li>
@@ -879,7 +879,8 @@ div {
   color: #000000;
   padding-top: 0px;
   padding-bottom: 0px;
-  margin-right: 8px;
+  margin-right: 2px;
+  margin-left: 2px;
   margin-bottom: 8px;
   font-size: 9px;
   text-decoration: none;
@@ -905,7 +906,10 @@ div {
 }
 
 .css-1w3ob58::after{
-  content: " |"
+  content: "\00B7";
+  font-size: 20px;
+  margin-right: 2px;
+  margin-left: 2px;
 }
 </style>
   <style data-emotion-css="1si0cz4">
