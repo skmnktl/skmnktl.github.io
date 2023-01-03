@@ -30,5 +30,8 @@ export default defineNuxtConfig({
     ],
     content: {
         documentDriven: true
+    },
+    experimental: {
+        payloadExtraction: false
     }
 });
