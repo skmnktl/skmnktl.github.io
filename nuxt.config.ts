@@ -10,6 +10,8 @@ export default defineNuxtConfig({
                 src: 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js',
             }],
         },
+        pageTransition: { name: 'page', mode: 'out-in' },
+        layoutTransition: { name: 'slide', mode: 'out-in'},
     },
     css: [
         '~/assets/fonts/alegreya.css'
@@ -17,4 +19,7 @@ export default defineNuxtConfig({
     modules: [
         '@nuxt/content'
     ],
+    content: {
+        documentDriven: true
+    }
 });

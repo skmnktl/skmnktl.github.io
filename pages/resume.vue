@@ -4,14 +4,14 @@
       <div class="css-1tcp1k1" id="resume">
         <div class="css-qz2fpi">
           <header class="pdf-resume-header css-s1kek">
-            <h1 class="css-1u2i2od">S. Kasyap Munukutla </h1> 
+            <h1 class="css-1u2i2od">Kasyap Munukutla </h1> 
             <h1 class="css-1ltptao">
               <a
                 href="http://linkedin.com/in/kasyapmunukutla"
                 target="_blank"
                 rel="noopener noreferrer nofollow ugc"
                 class="css-1cuak6k"
-                >@kasyapmunukutla</a>
+                >@linkedin</a>
             </h1> 
           </header>
           <div class="pdf-page-container css-vurnku">
@@ -379,18 +379,13 @@
         </div>
       </div>
     <span id="right">
-      <!--
-        <button @click="exportToPDF" class="pdfButton">
-        <font-awesome-icon :icon="['fas', 'fa-file-pdf']" />
-      </button>
-      -->
     </span>
   </div>
 </template>
 
-<!--<script>
-import html2pdf from 'html2pdf.js'
-
+<script>
+// Put the tag below in the right span
+//<!--<button @click="exportToPDF" class="pdfButton"><span>pdf</span></button>-->
 export default {
   name: "Resume",
   methods: {
@@ -404,7 +399,7 @@ export default {
   },
 };
 </script>
--->
+
 
 <style scoped>
 div {
@@ -610,28 +605,6 @@ div {
   position: relative;
 }
 </style>
-  <style data-emotion-css="1u2i2od">
-.css-1u2i2od {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  font-family: "Alegreya Sans", sans-serif;
-  font-weight: 700;
-  line-height: 1;
-  color: #000000;
-  font-weight: 700;
-  line-height: 1;
-  font-family: "Alegreya Sans", sans-serif;
-  text-transform: uppercase;
-  font-size: 20px;
-  -webkit-letter-spacing: 1px;
-  -moz-letter-spacing: 1px;
-  -ms-letter-spacing: 1px;
-  letter-spacing: 1px;
-  margin-bottom: 16px;
-  display: inline;
-}
-</style>
   <style data-emotion-css="1ltptao">
 .css-1ltptao {
   box-sizing: border-box;
@@ -690,15 +663,33 @@ div {
   margin-bottom: 8px;
 }
 </style>
+<style data-emotion-css="1u2i2od">
+.css-1u2i2od {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  font-family: "Alegreya Sans SC Bold", sans-serif;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.2;
+  text-transform: uppercase;
+  font-size: 18px;
+  -webkit-letter-spacing: 1px;
+  -moz-letter-spacing: 1px;
+  -ms-letter-spacing: 1px;
+  letter-spacing: 0px;
+  margin-bottom: 16px;
+  display: inline;
+}
+</style>
   <style data-emotion-css="1wvg85o">
 .css-1wvg85o {
   box-sizing: border-box;
   margin: 0;
   min-width: 0;
-  font-family: "Alegreya Sans SC", sans-serif;
+  font-family: "Alegreya Sans SC Bold", sans-serif;
   font-weight: 700;
   color: #000000;
-  font-weight: 700;
   line-height: 1.4;
   text-transform: uppercase;
   font-size: 12px;
@@ -723,13 +714,11 @@ div {
   box-sizing: border-box;
   margin: 0;
   min-width: 0;
-  font-family: "Alegreya Sans", sans-serif;
-  font-weight: 700;
+  font-family: "Alegreya Sans Medium", sans-serif;
+  font-weight: 900;
   line-height: 1;
   color: #000000;
-  font-weight: 700;
   line-height: 20px;
-  font-family: "Alegreya Sans", sans-serif;
   text-transform: uppercase;
   font-size: 16px;
   -webkit-letter-spacing: 0.07em;
@@ -761,10 +750,10 @@ div {
   margin: 0;
   min-width: 0;
   color: #3e3e3e;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 20px;
   margin-bottom: 4px;
-  font-family: "Alegreya Sans SC", sans-serif;
+  font-family: "Alegreya Sans", sans-serif;
 }
 </style>
   <style data-emotion-css="1kvlhqq">
@@ -806,12 +795,13 @@ div {
   margin-bottom: 4px;
 }
 </style>
-  <style data-emotion-css="aewju">
+<style data-emotion-css="aewju">
 .css-aewju {
   box-sizing: border-box;
   margin: 0;
   min-width: 0;
-  font-weight: 700;
+  font-family: 'Alegreya Sans Bold';
+  font-size: 1.1em;
 }
 </style>
   <style data-emotion-css="1yh09yi">
@@ -1004,23 +994,49 @@ iframe#_hjRemoteVarsFrame {
 h1, h2, h3, section {
     display: inline;
 }
-.pdfButton {
-  background-color: none;
-  border: none;
-  color: black;
-  padding: 0px 0px;
-  text-align: center;
-  font-size: 18px;
-  margin: 0px 0px;
-  opacity: 1;
-  transition: 0.3s;
-  display: inline-block;
-  text-decoration: none;
-  cursor: pointer;
-}
-.pdfButton:hover {opacity: 0.5}
 
 #right{
   padding-top: 20px;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  border: none;
+  text-align: center;
+  font-size: 0.75em;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: transparent;
+  color: blue;
+  font-family: "Alegreya Sans SC", sans-serif;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 20px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 </style>

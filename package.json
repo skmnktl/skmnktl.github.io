@@ -6,7 +6,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "deploy": "gh-pages -d .output/public"
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "@nuxt/content": "^2.3.0",
@@ -14,7 +14,8 @@
     "@nuxtjs/google-fonts": "^2.0.0",
     "gh-pages": "^4.0.0",
     "nuxt": "3.0.0",
-    "push-dir": "^0.4.1"
+    "push-dir": "^0.4.1",
+    "@nuxt/ui": "latest"
   },
   "dependencies": {
     "html2pdf.js": "^0.10.1",
