@@ -750,10 +750,11 @@ div {
   margin: 0;
   min-width: 0;
   color: #3e3e3e;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   margin-bottom: 4px;
-  font-family: "Alegreya Sans", sans-serif;
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-style: italic;
 }
 </style>
   <style data-emotion-css="1kvlhqq">
@@ -800,8 +801,9 @@ div {
   box-sizing: border-box;
   margin: 0;
   min-width: 0;
-  font-family: 'Alegreya Sans Bold';
+  font-family: 'Alegreya Sans';
   font-size: 1.1em;
+  font-style: bold;
 }
 </style>
   <style data-emotion-css="1yh09yi">
