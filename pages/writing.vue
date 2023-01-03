@@ -5,10 +5,10 @@
       <h1> Posts </h1>
       <Button id="interview" 
         title="Technical Interview Framework" 
-        @click="changeDisplayedContent('interviewing')" />
+        @click="changeDisplayedContent('interview_prep/interviewing')" />
       <Button id="ml_interview" 
         title="Topics for ML Interview Preparation" 
-        @click="changeDisplayedContent('ml_interview')" />
+        @click="changeDisplayedContent('interview_prep/ml_interview')" />
     </span>
     <span id="right-post">
       <ContentDoc :path="contentPath">
