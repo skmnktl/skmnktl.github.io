@@ -6,7 +6,7 @@
           <header class="pdf-resume-header css-s1kek">
             <h1 class="css-1u2i2od">Kasyap Munukutla </h1> 
             <h1 class="css-1ltptao">
-              <a
+              <font-awesome-icon :icon="['fab', 'fa-linkedin-in']"  /><a
                 href="http://linkedin.com/in/kasyapmunukutla"
                 target="_blank"
                 rel="noopener noreferrer nofollow ugc"

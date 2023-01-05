@@ -30,11 +30,11 @@
       <button class="button" style="vertical-align: middle">
         <span
           ><NuxtLink
-            to="/writing"
+            to="https://skmnktl.github.io/blog"
             align="right"
             style="text-decoration: none"
           >
-            writing
+            blog
           </NuxtLink>
         </span>
       </button>

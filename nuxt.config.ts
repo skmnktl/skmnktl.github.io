@@ -1,5 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    target: 'static',
+    ssr: false,
     app: {
         head: {
             link: [{
@@ -23,10 +25,10 @@ export default defineNuxtConfig({
         layoutTransition: { name: 'slide', mode: 'out-in'},
     },
     css: [
-        //'~/assets/fonts/alegreya.css'
+        '@fortawesome/fontawesome-svg-core/styles.css'
     ],
     modules: [
-        '@nuxt/content'
+        '@nuxt/content',
     ],
     content: {
         documentDriven: true

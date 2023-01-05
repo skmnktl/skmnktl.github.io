@@ -2,25 +2,49 @@
     <div class="aboutme">
       <span id="aboutmeimage">
         <img class="about" src="/winding_zion_road.jpg" />
+        <figcaption>Angel’s Landing, Zion National Park</figcaption>
       </span>
+      <span></span>
       <span id="aboutmedesc">
         <br />
-        <h3>Angel’s Landing, Zion National Park</h3>
         <p>
-          I remember little of going up this cliff; my memories are mostly of
-          the time at the top. I should have taken more photos along the way.
-          This blog is to my life what those photos would have been for my trip
-          to Utah.
+          I often write to learn. I expect this site to be a repository of all the things I'm learning about:
+          <ul>
+            <li class="topic">Carnatic Music</li>
+            <li class="topic">Photography</li>
+            <li class="topic">Sanskrit</li>
+            <li class="topic">Math</li>
+            <li class="topic">Computer Science</li>
+          </ul>
         </p>
       </span>
     </div>
 </template>
 
 <style scoped>
+
+ul{
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.topic {
+  box-sizing: border-box;
+  font-family: "Alegreya Sans", sans-serif;
+  font-weight: 400;
+  color: #000000;
+
+}
+
+
 .about{
     text-align: left;
-    width: 500px;
-    height: 500px;
+    width: 350px;
+    height: 350px;
     border-radius: 50px;
     padding: 30px;
 }
@@ -35,6 +59,8 @@
     }
 }
 
+p {}
+
 div {
   font-family: "Alegreya Sans", serif;
 }
@@ -45,10 +71,13 @@ div {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #000000;
+  display: inline-grid;
+  grid-template-columns: 30% 5% 65%;
 }
 
 h3 {
   font-family: "Alegreya Sans SC", sans-serif;
+  text-align: center;
 }
 
 p {
