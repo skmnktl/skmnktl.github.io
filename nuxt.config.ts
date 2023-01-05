@@ -1,7 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    target: 'static',
-    ssr: false,
     app: {
         head: {
             link: [{
@@ -29,11 +27,5 @@ export default defineNuxtConfig({
     ],
     modules: [
         '@nuxt/content',
-    ],
-    content: {
-        documentDriven: true
-    },
-    experimental: {
-        payloadExtraction: false
-    }
+    ]
 });
