@@ -11,13 +11,9 @@
         @click="changeDisplayedContent('ml_interview')" />
     </span>
     <span id="right">
-      <ContentDoc :path="contentPath">
-        <template #not-found>
-          <br> 
-          <br>
-          Click to display a post. 
-        </template>
-      </ContentDoc>
+      <iframe :src="contentPath" frameBorder="0">
+
+      </iframe>
       </span>
   </div>
 </template>
@@ -32,7 +28,7 @@ export default {
   },
   methods: {
     changeDisplayedContent(pathToContent) {
-      this.contentPath = "/" + pathToContent;
+      this.contentPath = "https://skmnktl.github.io" + "/blog/" + pathToContent;
     }
   }
 }
