@@ -27,5 +27,8 @@ export default defineNuxtConfig({
     ],
     modules: [
         '@nuxt/content',
-    ]
+    ],
+    generate: ['/general/interviewing','/general/ml_interview'],
+    target: 'static',
+    ssr: false
 });
