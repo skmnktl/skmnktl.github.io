@@ -29,7 +29,7 @@ export default defineNuxtConfig({
         '@nuxt/content',
     ],
     generate: { 
-        ['/','/resume','/photography','/general/interviewing','/general/ml_interview']
+        routes: ['/','/resume','/photography','/general/interviewing','/general/ml_interview']
     },
     target: 'static',
     ssr: false
