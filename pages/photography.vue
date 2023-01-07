@@ -1,5 +1,6 @@
 <template>
   <div id="photos">
+    <div class="column">
     <span class="container" key="1">
       <figure class="figurefx pushup">
         <img src="/1.jpg" class="image" />
@@ -24,6 +25,9 @@
         <figcaption>Lake Tahoe</figcaption>
       </figure>
     </span>
+    </div>
+
+    <div class="column">
     <span class="container" key="5">
       <figure class="figurefx pushup">
         <img src="/5.jpg" class="image" />
@@ -36,6 +40,20 @@
         <figcaption>Heraklion, Greece</figcaption>
       </figure>
     </span>
+    <span class="container" key="6">
+      <figure class="figurefx pushup">
+        <img src="/7.jpg" class="image" />
+        <figcaption>Consequences of a Wildfire, Yosemite</figcaption>
+      </figure>
+    </span>
+
+    <span class="container" key="6">
+      <figure class="figurefx pushup">
+        <img src="/8.jpg" class="image" />
+        <figcaption>Purple Grove, Yosemite</figcaption>
+      </figure>
+    </span>
+    </div>
   </div>
 </template>
 
@@ -47,8 +65,19 @@ definePageMeta({
 
 
 <style scoped>
-div {
+#photos {
   font-family: "Alegreya Sans", serif;
+}
+
+.photos:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 50%;
 }
 
 .image {
