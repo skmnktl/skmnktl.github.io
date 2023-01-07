@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    target: 'static',
     app: {
         head: {
             link: [{
@@ -28,9 +29,13 @@ export default defineNuxtConfig({
     modules: [
         '@nuxt/content',
     ],
-    generate: { 
-        routes: ['/','/resume','/photography','/general/interviewing','/general/ml_interview']
+    nitro: {
+        prerender: {
+            crawlLinks: false,
+            routes: ['/','/resume','/photography','/general/interviewing','/general/ml_interview']
+        }
     },
-    target: 'static',
-    ssr: false
+    experimental :{
+        payloadExtraction: false
+    }
 });
