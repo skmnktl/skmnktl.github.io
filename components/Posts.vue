@@ -5,13 +5,13 @@
       <h1> Posts </h1>
       <Button id="interview" 
         title="Technical Interview Framework" 
-        @click="changeDisplayedContent('interviewing')" />
+        @click="changeDisplayedContent('/general/interviewing')" />
       <Button id="ml_interview" 
         title="Topics for ML Interview Preparation" 
-        @click="changeDisplayedContent('ml_interview')" />
+        @click="changeDisplayedContent('/general/ml_interview')" />
     </span>
     <span id="right">
-      <iframe :src="contentPath" frameBorder="0">
+      <iframe id="postFrame" :src="contentPath" frameBorder="0">
 
       </iframe>
       </span>
@@ -28,13 +28,18 @@ export default {
   },
   methods: {
     changeDisplayedContent(pathToContent) {
-      this.contentPath = "https://skmnktl.github.io" + "/blog/" + pathToContent;
+      this.contentPath = pathToContent;
     }
   }
 }
 </script>
 
 <style scoped>
+#postFrame{
+  width: 100%;
+  min-height: 1500px;
+  height: auto;
+}
 
 h1 {
     margin:0;

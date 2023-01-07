@@ -30,7 +30,7 @@
       <button class="button" style="vertical-align: middle">
         <span
           ><NuxtLink
-            to="https://skmnktl.github.io/blog"
+            to="/blog"
             align="right"
             style="text-decoration: none"
           >

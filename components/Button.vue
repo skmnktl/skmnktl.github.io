@@ -15,7 +15,7 @@ export default {
 
 </script>
 
-<style scoped>
+<style >
 .button {
   display: inline-block;
   border-radius: 4px;
