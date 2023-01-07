@@ -21,6 +21,12 @@
     </div>
 </template>
 
+<script>
+definePageMeta({
+  layout: "default",
+});
+</script>
+
 <style scoped>
 
 ul{
@@ -89,3 +95,5 @@ p {
   text-align: left;
 }
 </style>
+
+

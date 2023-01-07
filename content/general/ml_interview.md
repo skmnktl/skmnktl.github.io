@@ -1,3 +1,7 @@
+---
+layout: post-view
+---
+
 # ML Interview Prep
 1. Preparation = Theory + Projects
 2. Interview Structure

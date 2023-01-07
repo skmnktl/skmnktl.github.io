@@ -39,6 +39,13 @@
   </div>
 </template>
 
+<script>
+definePageMeta({
+  layout: "default",
+});
+</script>
+
+
 <style scoped>
 div {
   font-family: "Alegreya Sans", serif;

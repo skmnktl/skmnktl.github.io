@@ -1,3 +1,6 @@
+---
+layout: post-view
+---
 # Interview Method
 The idea is that if I build up instincts for how to interview, the limited computing resources I have can be directed towards the simple act of problem-solving and the occasional joke to keep my interviewer entertained. 
 

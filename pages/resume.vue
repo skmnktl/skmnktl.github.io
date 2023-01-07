@@ -384,6 +384,10 @@
 </template>
 
 <script>
+definePageMeta({
+  layout: "default",
+});
+
 // Put the tag below in the right span
 //<!--<button @click="exportToPDF" class="pdfButton"><span>pdf</span></button>-->
 export default {
