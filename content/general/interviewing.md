@@ -23,46 +23,50 @@ I annotate each part to speak for with a caret below.
 ## Plan
 1. Data Structure 
 	1. List, Linked List, HashMap, and Graph are the most common.
-	2. Choose a structure ^
+	2. Choose a structure. ^
 2. Sketch Out Rough Algorithm ^ 
 
 ## Write Code
 1. Do we need to use OOP? ^ 
 2. Organizational Structures
-> Speak briefly when writing each of the following structures. Writing any of the following structures should be a cue to speak.   
-	1. Classes
-		1. Methods ^
-		2. Data ^ 
-	2. Functions
-		1. Parameters ^
-		2. Return Types ^
-	3. Loops
-		1. What does a single iteration do? ^
-		2. What are the termination conditions? ^
-	4. Recursion
-		1. What are the base cases? ^
-		2. What are the termination conditions besides the base cases? ^
-> Recursion is loop-based or function-based. The appropriate bullets for discussion in #2 and #3 apply.   
-3. Complexity
-	1. Space
-	2. Memory
+3. Complexity - Space vs. Time
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Discussion of complexity is often implicitly about time. But that need not be the case. It's good to ask or at least mention the assumption explicitly. 
+
+### Framework by Structure
+
+Speak briefly when writing each of the following structures. Writing any of the following structures should be a cue to speak.
+
+1. Classes
+    1. Methods ^
+    2. Data ^ 
+2. Functions
+    1. Parameters ^
+    2. Return Types ^
+3. Loops
+    1. What does a single iteration do? ^
+    2. What are the termination conditions? ^
+4. Recursion
+    1. What are the base cases? ^
+    2. What are the termination conditions besides the base cases? ^
+    3. Recursion is loop-based or function-based. The appropriate bullets for discussion in #2 and #3 apply.   
+
 
 ## Test
 1. Run Example Cases
 2. Edge Cases
-	1. List: [], singleton list, list of two, etc. 
+	1. List: $\emptyset$, singleton list, list of two, etc. 
 	2. Linked List: Empty Root, etc.
 	3. HashMap
 	4. Graph: Empty Graph, Leaf (Leaf Node Type vs. None)
 		1. Tree
 		2. Binary Tree
-> Certain data structures have common edge cases. A few are listed above, but spending time thinking of these is useful.   
+
+Certain data structures have common edge cases. A few are listed above, but spending time thinking of these is useful.   
 
 ## Reflection
 1. What could we have done to improve 
 	1. efficiency
 	2. readability, and
 	3. comments?
-> There’s something to be said about the application we’re using. Sometimes memory is scarce and other times, compute resources are lacking. Often we assume the latter is more valuable. But that’s an archaic style of thinking— sometimes memory is scarce these days with such large data and applications. There are often trades to be made between the two.   
-> But your interviewer will likely expect you to optimize for scarce computing resources, not memory. So do that first, but do talk about memory at the end.   
 2. Ask for feedback. Not all of it is useful, but sometimes, it can be gold. 

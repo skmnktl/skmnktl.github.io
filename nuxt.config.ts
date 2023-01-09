@@ -16,6 +16,10 @@ export default defineNuxtConfig({
                 rel: 'preconnect',
                 href: 'https://fonts.gstatic.com',
                 crossorigin: true
+            },
+            {
+                rel: 'stylesheet',
+                href: 'https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css'
             }],
             script: [{
                 src: 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js',
@@ -25,10 +29,11 @@ export default defineNuxtConfig({
         layoutTransition: { name: 'slide', mode: 'out-in'},
     },
     css: [
-        '@fortawesome/fontawesome-svg-core/styles.css'
+        '@fortawesome/fontawesome-svg-core/styles.css',
+        '~/assets/css/main.css'
     ],
     modules: [
-        '@nuxt/content',
+        '@nuxt/content'
     ],
     nitro: {
         prerender: {
@@ -38,5 +43,19 @@ export default defineNuxtConfig({
     },
     experimental :{
         payloadExtraction: false
-    }
+    },
+    markdown: {
+      remarkPlugins: [
+        'remark-math'
+      ],
+      rehypePlugins: [
+        'rehype-katex'
+      ]
+    },
+    postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
 });

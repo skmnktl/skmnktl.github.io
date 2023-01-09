@@ -1,8 +1,9 @@
 <template>
-  <div class="posts">
+  <div class="postsSidebar">
     <span id="left">
       <br>
       <h1> Posts </h1>
+      <h2> General Topics </h2>
       <Button id="interview" 
         title="Technical Interview Framework" 
         @click="changeDisplayedContent('/general/interviewing')" />
@@ -43,16 +44,29 @@ export default {
 
 h1 {
     margin:0;
+    padding-left: 5px;
+    font-weight: bold;
+    font-size: 1.2em; 
+}
+h2 {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 1em; 
+
 }
 #left {
   vertical-align: top;
   text-align: left;
 }
-.posts {
+.postsSidebar {
   width: 100%;
   text-align: left;
   vertical-align: top;
   display: grid;
   grid-template-columns: 30% 70%;
+  font-family: 'Alegreya Sans';
 }
 </style>

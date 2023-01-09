@@ -85,7 +85,7 @@ definePageMeta({
   height: auto;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
 .image{
     width: 99%;
     height: 99%;
@@ -93,7 +93,7 @@ definePageMeta({
 }
 
 figure.figurefx {
-  width: 600px;
+  width: 500px;
   margin: 30px auto;
   padding: 0;
   display: block;
@@ -107,21 +107,21 @@ figure.figurefx figcaption {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  text-align: center;
-  padding: 15px;
+  text-align: left;
+  padding: 0px;
   z-index: 100;
   width: 100%;
   max-height: 100%;
   overflow: hidden;
-  top: 50%;
+  top: 100%;
   left: 0;
   -moz-transform: translate3d(
     -100%,
     -50%,
     0
   ); /* position caption outside layout horizontally and centered vertically */
-  -webkit-transform: translate3d(-100%, -50%, 0);
-  transform: translate3d(-100%, -50%, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   opacity: 0;
   -moz-transition: all 0.5s;
   -webkit-transition: all 0.5s;
@@ -156,8 +156,8 @@ figure.pushup:hover img {
     -40px,
     0
   ); /* move image up vertically a bit for parallax effect */
-  -webkit-transform: translate3d(0, -40px, 0);
-  transform: translate3d(0, -40px, 0);
+  -webkit-transform: translate3d(0, -50px, 0);
+  transform: translate3d(0, -50px, 0);
   opacity: 0.5;
 }
 

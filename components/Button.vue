@@ -25,8 +25,8 @@ export default {
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
-  padding-right: 10px;
-  padding-left: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
   background-color: transparent;
   color: blue;
   font-family: "Alegreya Sans SC", sans-serif;

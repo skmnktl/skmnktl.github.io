@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main class="prose prose-stone prose-sm">
         <ContentDoc />
     </main>
 </template>
