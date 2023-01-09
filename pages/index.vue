@@ -35,7 +35,7 @@ ul{
   min-width: 0;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding-left: 20px;
 }
 
 .topic {
