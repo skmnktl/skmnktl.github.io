@@ -5,12 +5,16 @@
 </template>
 
 <script>
+
 definePageMeta({
   layout: "post-view",
 });
+
 </script>
 
 <style scoped>
+@import "../node_modules/katex/dist/katex.min.css";
+
 h1 {
     margin:0;
 }

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+pandoc -s $1.tex -o $1.html
+mv $1.html $1.md

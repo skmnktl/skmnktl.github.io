@@ -10,13 +10,8 @@ module.exports = {
   ],
   theme: {
     extend: {},
-		latex: {
-			footnotes: true,
-			syntax: true,
-		},
   },
   plugins: [
-    require('@tailwindcss/typography'),
-    require("latex-tailwind")
+    require('@tailwindcss/typography')
   ],
 }
