@@ -148,7 +148,7 @@
     <section id="skills">
     <h1 class="section-title">Skills</h1>
     <ul class="skills-list">
-      <li>Python <span class="small-list">Numpy/PyTorch/Pandas/Flask/FastAPI</span></li>
+      <li>Python (Numpy/PyTorch/Pandas/Flask/FastAPI)</li>
       <li>SQL</li>
       <li>C++</li>
       <li>C</li>
