@@ -1,7 +1,9 @@
 <template>
   <div class="root-resume">
+    <section class="main-heading">
     <h1 class="my-name">Kasyap Munukutla</h1>
     <h1 class="my-linkedin"><a href="http://linkedin.com/in/kasyapmunukutla">@linkedin</a></h1>
+    </section>
     <section id="work-experience">
     <h1 class="section-title">Work Experience</h1>
 
@@ -154,6 +156,43 @@
 </template>
 
 <style scoped>
+.main-heading{
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+.my-name{
+  display: inline;
+}
+
+.my-linkedin::before{
+  content: " ";
+}
+
+.my-linkedin{
+  display: inline;
+  font-size: 0.8em;
+}
+#education, #work-experience{
+  margin-bottom: 1em;
+}
+.section-title{
+  display: inline;
+  margin: 0em;
+  font-size: 1.2em;
+  font-family: 'Alegreya Sans SC';
+}
+
+.name{
+  margin-top: 0.75em;
+  margin-bottom: 0.2em;
+}
+
+.job-title,.degree-title{
+  margin-top: 0em;
+  margin-bottom: 0em;
+  font-style: italic;
+}
+
 .skills-list{
 
 }
