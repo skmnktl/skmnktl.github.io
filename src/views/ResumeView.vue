@@ -60,8 +60,7 @@
         by 5x
       </li>
     </ul>
-      <span class="relevant-skills"><em>Relevant Skills</em> Python,SQL, NLP (Entity Recognition,Topic
-Extraction, Speaker Tagging),GeoJSON Shape Files, Google BigQuery, Data Engineering
+      <span class="relevant-skills"><em>Relevant Skills</em> Python,SQL, NLP (Entity Recognition,Topic Extraction, Speaker Tagging),GeoJSON Shape Files, Google BigQuery, Data Engineering</span>
     </section>
 
     <section class="employer">
