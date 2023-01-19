@@ -5,7 +5,7 @@
     <span class="resumeContent">
     <section class="main-heading">
     <h1 class="my-name">Kasyap Munukutla</h1>
-    <h1 class="my-linkedin"><a href="http://linkedin.com/in/kasyapmunukutla">@linkedin</a></h1>
+    <h1 class="my-linkedin"><a href="http://linkedin.com/in/kasyapmunukutla"><font-awesome-icon icon="fab fa-linkedin-in" /></a></h1>
     </section>
     <section id="work-experience">
     <h1 class="section-title">Work Experience</h1>
@@ -23,22 +23,22 @@
     </section>
 
     <section class="employer">
-    <h2 class="name">UChicago CS Department</h2>
+    <h2 class="name">UChicago, CS Department</h2>
     <p class="job-title">Research Engineer, NLP for Prof. Chenhao Tan | Mar 2022 - Aug 2022</p>
     <p class="job-description"><strong>Built model predicting whether evoking a given emotion is persuasive using Reddit's ChangeMyView
       data</strong></p>
     <ul>
-      <li>Data: OP asks for their view to be changed and awards a point to each convincing reply; each thread is a tree
+      <li><u>Data</u>: OP asks for their view to be changed and awards a point to each convincing reply; each thread is a tree
         with children being responses to parent posts
       </li>
-      <li>Pre-processing: posts are tagged with the corresponding label: convincing or not then tokenized using nltk's
+      <li><u>Pre-processing</u>: posts are tagged with the corresponding label: convincing or not then tokenized using nltk's
         tokenizer
       </li>
-      <li>Structure: posts are redacted to reflect only vocabulary for a specific emotion, e.g. fear; word2vec
+      <li><u>Structure</u>: posts are redacted to reflect only vocabulary for a specific emotion, e.g. fear; word2vec
         embedding-based negative sampling technique used since 99.5% of data is negatively labeled
       </li>
-      <li>Model: BERT-Transformer model implemented using PyTorch, PyTorch Lightning and HuggingFace Transformer</li>
-      <li>Results: fear, belligerence, and qualification are all highly predictive (between 75% to 65% compared to
+      <li><u>Model</u>: BERT-Transformer model implemented using PyTorch, PyTorch Lightning and HuggingFace Transformer</li>
+      <li><u>Results</u>: fear, belligerence, and qualification are all highly predictive (between 75% to 65% compared to
         baseline of 60%); bluster and confidence are not
       </li>
     </ul>
@@ -46,7 +46,7 @@
     </section>
 
     <section class="employer">
-    <h2 class="name">UChicago Booth School of Business</h2>
+    <h2 class="name">UChicago, Booth School of Business</h2>
     <p class="job-title">Research Engineer, Finance for Prof. Jessica Jeffers | Jan 2020 - Jul 2021 </p>
     <p class="job-description"><strong>Conducted research on antitrust policy and economic growth using congressional transcripts, antitrust
       case records, and business locations</strong></p>
@@ -82,7 +82,7 @@
     </section>
 
     <section class="employer">
-    <h2 class="name">Stanford University GSB</h2>
+    <h2 class="name">Stanford University, Graduate School of Business</h2>
     <p class="job-title">Research Engineer, Computational Sociology for Prof. Amir Goldberg | Jul 2016 - Mar 2018</p>
     <p class="job-description"><strong>Conducted sociological research on enculturation of employees within organizations using 10M+ records of
       email data</strong></p>
@@ -97,6 +97,8 @@
         thereby convincing 3+ partners to share sensitive data with the research team
       </li>
     </ul>
+    <span class="relevant-skills"><em>Relevant Skills</em> Python, Java, NLP (Spacy, Text Parsing, Speaker Taggin, Tokenization, Word Embeddings), NumPy, Data Engineering, EML Files </span>
+    </section>
     </section>
 
     <section class="employer">
@@ -116,6 +118,7 @@
       </li>
       <li>predicted recurrent revenue and customer attrition using regression and decision trees in a stacked model in preparation for successful funding round</li>
     </ul>
+      <span class="relevant-skills"><em>Relevant Skills</em> Python, Tableau, SQL, Google BigQuery</span>
     </section>
 
     <section class="employer">
@@ -127,7 +130,6 @@
       </ul>
     </section>
 
-    </section>
 
     <section id="education">
     <h1 class="section-title">Education</h1>
@@ -142,10 +144,11 @@
     </section>
 
     </section>
+
     <section id="skills">
     <h1 class="section-title">Skills</h1>
     <ul class="skills-list">
-      <li>Python (Numpy/PyTorch/Pandas/Flask/FastAPI)</li>
+      <li>Python <span class="small-list">Numpy/PyTorch/Pandas/Flask/FastAPI</span></li>
       <li>SQL</li>
       <li>C++</li>
       <li>C</li>
@@ -165,91 +168,101 @@
 </template>
 
 <style scoped>
-.root-resume{
+.root-resume {
   display: grid;
   grid-template-columns: auto 60% auto;
 }
 
-.main-heading{
+.fa-linkedin-in{
+  color: #0077b5;
+}
+
+.main-heading {
   margin-top: 0.75em;
   margin-bottom: 0.75em;
 }
-.my-name{
+
+.my-name {
   display: inline;
 }
 
-.my-linkedin::before{
+.my-linkedin::before {
   content: " ";
 }
 
-.my-linkedin{
+.my-linkedin {
   display: inline;
   font-size: 0.8em;
 }
-#education, #work-experience{
+
+#education, #work-experience {
   margin-bottom: 1em;
 }
-.section-title{
+
+.section-title {
   display: inline;
   margin: 0em;
   font-size: 1.2em;
   font-family: 'Alegreya Sans SC';
 }
 
-.name{
+.name {
   margin-top: 0.75em;
   margin-bottom: 0.2em;
 }
 
-.job-title,.degree-title{
+.job-title, .degree-title {
   margin-top: 0em;
   margin-bottom: 0em;
   font-style: italic;
 }
 
-.employer ul{
+.employer ul {
   margin: none;
 }
 
-.employer .job-description{
+.employer .job-description {
   margin-top: 0.5em;
   margin-bottom: 0em;
 }
-.employer ul{
+
+.employer ul {
   margin-top: 0.25em;
   margin-bottom: 0.5em;
 }
 
-.employer li{
+.employer li {
   list-style: none;
   padding-bottom: 0.1em;
 }
 
-.employer li::before{
+.employer li::before {
   content: "— "
 }
 
-.employer .relevant-skills{
+.employer .relevant-skills {
   margin-top: 0em;
 }
 
-#skills ul{
+#skills ul {
   margin: 0.25em;
   padding-left: 0em;
 }
-.skills-list{
+
+.skills-list {
   list-style-type: none;
   margin: none;
 }
-.skills-list ul{
+
+.skills-list ul {
   margin-top: 0.25em;
 }
 
-.skills-list li{
+.skills-list li {
   display: inline;
 }
 
-.skills-list li:not(:last-child)::after{
+.skills-list li:not(:last-child)::after {
   content: " · "
 }
 

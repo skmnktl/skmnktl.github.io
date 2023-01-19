@@ -26,7 +26,6 @@ import HelloWorld from './components/HelloWorld.vue'
   display: grid;
   grid-template-columns: 30% auto 30%;
   font-size: 1.5em;
-  border-bottom: dashed;
 }
 .toolbarLeft{
   text-align: left;
@@ -36,5 +35,10 @@ import HelloWorld from './components/HelloWorld.vue'
   text-align: right;
 }
 
+@media only screen and (max-width: 600px) {
+  .wrapper nav{
+    font-size: 1em;
+  }
+}
 
 </style>

@@ -20,18 +20,3 @@ a:hover::after{
   opacity: 1;
   content: " » ";
 }
-
-
-@media (hover: hover) {
-
-}
-
-@media (min-width: 1024px) {
-  body {
-
-  }
-
-  #app {
-
-  }
-}

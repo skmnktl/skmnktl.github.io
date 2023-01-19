@@ -8,8 +8,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faLink } from '@fortawesome/free-solid-svg-icons'
-library.add(faLink)
+import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+library.add(faLinkedinIn)
 
 const app = createApp(App)
 
