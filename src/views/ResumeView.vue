@@ -101,7 +101,7 @@
 
     <section class="employer">
     <h2 class="name"><a href="http://sojern.com/">Sojern, Inc.</a></h2>
-    <p class="job-title">Sr. Data Analyst | Jan 2016 - Oct 2019</p>
+    <p class="job-title">Sr. Data Analyst (Lead) | Jan 2016 - Oct 2019</p>
     <p class="job-description"><strong>Managed junior colleagues on various analytical and large-scale automation projects including:</strong>
     </p>
     <ul>
@@ -114,15 +114,17 @@
       <li>led preparation for Board of Directors meetings on behalf of CEO-staff: maintained official metrics, explained
         KPI trends, and performed ad-hoc data analysis
       </li>
-      <li>predicted recurrent revenue and customer attrition using regression and decision trees in a stacked model</li>
+      <li>predicted recurrent revenue and customer attrition using regression and decision trees in a stacked model in preparation for successful funding round</li>
     </ul>
     </section>
 
     <section class="employer">
     <h2 class="name"><a href="http://cardinalhealth.com/">Cardinal Health</a></h2>
     <p class="job-title">Corporate Strategy, Operations Finance, FP&amp;A | Jul 2012 - Jan 2016</p>
-    <p class="job-title condensed">Consultant, Corporate Strategy | Jun. 2014 - Jan 2016</p>
-    <p class="job-title condensed">Sr. Analyst, Finance | Jul. 2012 - Jun. 2014</p>
+      <ul>
+      <li>Consultant, Corporate Strategy | Jun. 2014 - Jan 2016</li>
+      <li>Sr. Analyst, Finance | Jul. 2012 - Jun. 2014</li>
+      </ul>
     </section>
 
     </section>
@@ -135,7 +137,7 @@
     </section>
 
     <section class="school">
-    <h2 class="name">University of Virginia</h2>
+    <h2 class="name"><a href="https://www.virginia.edu/">University of Virginia</a></h2>
     <p class="degree-title">BA, Economics | May 2012 </p>
     </section>
 
@@ -220,6 +222,7 @@
 
 .employer li{
   list-style: none;
+  padding-bottom: 0.1em;
 }
 
 .employer li::before{
