@@ -1,0 +1,37 @@
+@import './base.css';
+
+#app {
+  font-family: 'Alegreya Sans';
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  margin-right: 0.2em;
+}
+a::after{
+  content: " ";
+}
+a::before{
+  content: "";
+}
+
+a:hover::after{
+  opacity: 1;
+  content: " » ";
+}
+
+
+@media (hover: hover) {
+
+}
+
+@media (min-width: 1024px) {
+  body {
+
+  }
+
+  #app {
+
+  }
+}

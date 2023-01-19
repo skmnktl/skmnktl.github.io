@@ -1,1 +1,0 @@
-Click on a link to the left to display a post.

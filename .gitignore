@@ -1,9 +1,0 @@
-node_modules
-.nuxt
-dist
-.output/
-package-lock.json
-yarn-error.log
-.DS_Store
-assets/.DS_Store
-yarn.lock
