@@ -1,5 +1,8 @@
 <template>
+
   <div class="root-resume">
+    <span class="spacerLeft"></span>
+    <span class="resumeContent">
     <section class="main-heading">
     <h1 class="my-name">Kasyap Munukutla</h1>
     <h1 class="my-linkedin"><a href="http://linkedin.com/in/kasyapmunukutla">@linkedin</a></h1>
@@ -16,7 +19,7 @@
         code modularity and cleanliness
       </li>
     </ul>
-    <div class="relevant-skills"><em>Relevant Skills</em> Python, Go, AWS, Docker, Github Actions, Microservice Design &amp; Implementation </div>
+    <span class="relevant-skills"><em>Relevant Skills</em> Python, Go, AWS, Docker, Github Actions, Microservice Design &amp; Implementation </span>
     </section>
 
     <section class="employer">
@@ -38,7 +41,9 @@
       <li>Results: fear, belligerence, and qualification are all highly predictive (between 75% to 65% compared to
         baseline of 60%); bluster and confidence are not
       </li>
-    </ul> </section>
+    </ul>
+    <span class="relevant-skills"><em>Relevant Skills</em> PyTorch, PyTorch Lightning, NLP (NLTK, HuggingFace Transformers, RNNs, Tokenization, Word Embeddings), NumPy, Go </span>
+    </section>
 
     <section class="employer">
     <h2 class="name">UChicago Booth School of Business</h2>
@@ -55,6 +60,8 @@
         by 5x
       </li>
     </ul>
+      <span class="relevant-skills"><em>Relevant Skills</em> Python,SQL, NLP (Entity Recognition,Topic
+Extraction, Speaker Tagging),GeoJSON Shape Files, Google BigQuery, Data Engineering
     </section>
 
     <section class="employer">
@@ -137,8 +144,7 @@
     <section id="skills">
     <h1 class="section-title">Skills</h1>
     <ul class="skills-list">
-      <li>Python</li>
-      <li> Numpy/PyTorch/Pandas/Flask/FastAPI</li>
+      <li>Python (Numpy/PyTorch/Pandas/Flask/FastAPI)</li>
       <li>SQL</li>
       <li>C++</li>
       <li>C</li>
@@ -152,10 +158,17 @@
       <li>AWS</li>
     </ul>
   </section>
+      </span>
+    <span class="spacerLeft"></span>
   </div>
 </template>
 
 <style scoped>
+.root-resume{
+  display: grid;
+  grid-template-columns: auto 60% auto;
+}
+
 .main-heading{
   margin-top: 0.75em;
   margin-bottom: 0.75em;
@@ -193,8 +206,49 @@
   font-style: italic;
 }
 
-.skills-list{
+.employer ul{
+  margin: none;
+}
 
+.employer .job-description{
+  margin-top: 0.5em;
+  margin-bottom: 0em;
+}
+.employer ul{
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+}
+
+.employer li{
+  list-style: none;
+}
+
+.employer li::before{
+  content: "— "
+}
+
+.employer .relevant-skills{
+  margin-top: 0em;
+}
+
+#skills ul{
+  margin: 0.25em;
+  padding-left: 0em;
+}
+.skills-list{
+  list-style-type: none;
+  margin: none;
+}
+.skills-list ul{
+  margin-top: 0.25em;
+}
+
+.skills-list li{
+  display: inline;
+}
+
+.skills-list li:not(:last-child)::after{
+  content: " · "
 }
 
 </style>
