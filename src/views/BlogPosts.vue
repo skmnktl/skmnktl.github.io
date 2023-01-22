@@ -1,17 +1,16 @@
 <template>
   <span class="blog-page">
     <div class="blog-title">
-      Writing to Learn
     </div>
     <div class="blog-posts">
     <BlogPost
-      link="/posts/interviewing"
+      link="/posts/interview-prep/interviewing"
       title="Interview Framework"
       date="1/20/2023"
       description="A consulting style framework for technical interview preparation"
     />
     <BlogPost
-      link="/posts/ml_interview"
+      link="/posts/interview-prep/ml_interview"
       title="ML Topics"
       date="1/20/2023"
       description="A list of fundamental topics for review before ML interviews"
