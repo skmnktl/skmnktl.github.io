@@ -181,6 +181,7 @@ var opt = {
 export default {
   setup(){
     function exportToPDF(){
+      console.log("hello!");
       html2pdf().set(opt).from(element).save();
     }
     return {
