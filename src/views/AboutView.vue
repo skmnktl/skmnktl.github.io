@@ -13,13 +13,10 @@
 
 <style scoped>
 
-.about{
-  display: inline-grid;
-  grid-template-columns: auto 50% auto;
-}
+
 
 img{
-  width: 50%;
+  width: 30%;
   max-width: 70%;
   border-radius: 50px;
 }
