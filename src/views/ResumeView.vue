@@ -208,7 +208,7 @@ export default {
 .resumeContent{
   margin-bottom: 0em;
   margin-top: 0em;
-  font-size: 12px;
+  font-size: 24px;
 }
 .fa-linkedin-in{
   color: #0077b5;
