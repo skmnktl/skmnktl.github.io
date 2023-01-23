@@ -164,7 +164,7 @@
   </section>
       </span>
     <span class="spacerLeft">
-      <button @click="exportToPDF">pdf</button>
+      <button @click="exportToPDF" class="pdfGenToggle">pdf</button>
     </span>
   </div>
 </template>
@@ -193,6 +193,10 @@ export default {
 </script>
 
 <style scoped>
+.pdfGenToggle{
+  display: none;
+}
+
 .page-break{
   break-before: always;
 }
