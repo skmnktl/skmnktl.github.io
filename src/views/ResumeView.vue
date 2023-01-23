@@ -60,7 +60,7 @@
         by 5x
       </li>
     </ul>
-      <span class="relevant-skills"><em>Relevant Skills</em> Python,SQL, NLP (Entity Recognition,Topic Extraction, Speaker Tagging),GeoJSON Shape Files, Google BigQuery, Data Engineering</span>
+      <span class="relevant-skills"><em>Relevant Skills</em> Python,SQL, NLP (Entity Recognition,Topic Extraction, Speaker Tagging), GeoJSON Shape Files, Google BigQuery, Data Engineering</span>
     </section>
 
     <section class="employer">
@@ -170,18 +170,19 @@
 </template>
 <script>
 import html2pdf from "html2pdf.js"
-var element = document.getElementById('pdfThis');
-var opt = {
-  margin:       1,
-  filename:     'myfile.pdf',
-  image:        { type: 'jpeg', quality: 0.98 },
-  html2canvas:  { scale: 2 },
-  jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-};
+
 export default {
   setup(){
     function exportToPDF(){
-      console.log("hello!");
+      var element = document.getElementById('pdfThis');
+      var opt = {
+        margin:       0.5,
+        filename:     'myfile.pdf',
+        image:        { type: 'jpeg', quality: 1 },
+        html2canvas:  { scale: 4 },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
+        pagebreak: { mode: 'avoid-all', before: '.page-break' }
+      };
       html2pdf().set(opt).from(element).save();
     }
     return {
@@ -192,11 +193,19 @@ export default {
 </script>
 
 <style scoped>
+.page-break{
+  break-before: always;
+}
+
 .root-resume {
   display: grid;
   grid-template-columns: auto 60% auto;
 }
-
+.resumeContent{
+  margin-bottom: 0em;
+  margin-top: 0em;
+  font-size: 12px;
+}
 .fa-linkedin-in{
   color: #0077b5;
 }
@@ -208,6 +217,7 @@ export default {
 
 .my-name {
   display: inline;
+  font-size: 2em;
 }
 
 .my-linkedin::before {
@@ -220,18 +230,18 @@ export default {
 }
 
 #education, #work-experience {
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 .section-title {
   display: inline;
   margin: 0em;
   font-size: 1.2em;
-  font-family: 'Alegreya Sans SC';
+  font-family: 'Alegreya Sans';
 }
 
 .name {
-  margin-top: 0.75em;
+  margin-top: 0.5em;
   margin-bottom: 0.2em;
 }
 
