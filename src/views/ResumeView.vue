@@ -7,6 +7,9 @@
     <h1 class="my-name">Kasyap Munukutla</h1>
     <h1 class="my-linkedin"><a href="http://linkedin.com/in/kasyapmunukutla"><font-awesome-icon icon="fab fa-linkedin-in" /></a></h1>
     </section>
+      <section id="objective">
+          My eventual goal is a move to quant-finance or fintech industries; I bring several years of experience leading analytics teams as well as research engineering in NLP and building ML Data Pipelines and Infrastructure. Most recently, I've been working in Backend Development to round out my core engineering toolkit.
+      </section>
     <section id="work-experience">
     <h1 class="section-title">Work Experience</h1>
 
@@ -193,6 +196,11 @@ export default {
 </script>
 
 <style scoped>
+#objective{
+  font-style: italic;
+  font-size: 1.25em;
+  margin-bottom: 0.25em;
+}
 .pdfGenToggle{
   display: none;
 }
