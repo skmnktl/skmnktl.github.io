@@ -2,7 +2,7 @@
 
   <div class="root-resume">
     <span class="spacerLeft"></span>
-    <span class="resumeContent">
+    <span class="resumeContent" id="pdfThis">
     <section class="main-heading">
     <h1 class="my-name">Kasyap Munukutla</h1>
     <h1 class="my-linkedin"><a href="http://linkedin.com/in/kasyapmunukutla"><font-awesome-icon icon="fab fa-linkedin-in" /></a></h1>
@@ -163,9 +163,32 @@
     </ul>
   </section>
       </span>
-    <span class="spacerLeft"></span>
+    <span class="spacerLeft">
+      <button @click="exportToPDF">pdf</button>
+    </span>
   </div>
 </template>
+<script>
+import html2pdf from "html2pdf.js"
+var element = document.getElementById('pdfThis');
+var opt = {
+  margin:       1,
+  filename:     'myfile.pdf',
+  image:        { type: 'jpeg', quality: 0.98 },
+  html2canvas:  { scale: 2 },
+  jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+};
+export default {
+  setup(){
+    function exportToPDF(){
+      html2pdf().set(opt).from(element).save();
+    }
+    return {
+      exportToPDF
+    }
+  }
+}
+</script>
 
 <style scoped>
 .root-resume {
