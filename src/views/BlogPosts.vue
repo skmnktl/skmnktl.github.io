@@ -30,8 +30,8 @@ import BlogPost from "@/components/BlogPost.vue"
 .blog-title{
   text-align: left;
   font-style: bold;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: 0em;
+  margin-bottom: 0em;
 }
 
 .blog-page{
