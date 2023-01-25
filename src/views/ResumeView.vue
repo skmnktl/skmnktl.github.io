@@ -1,5 +1,4 @@
 <template>
-
   <div class="root-resume">
     <span class="spacerLeft"></span>
     <span class="resumeContent" id="pdfThis">
