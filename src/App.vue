@@ -11,7 +11,6 @@ import { RouterLink, RouterView } from 'vue-router'
         <span class="toolbarRight">
           <RouterLink to="/">home</RouterLink>
           <RouterLink to="/resume">resume</RouterLink>
-          <RouterLink to="/about">about</RouterLink>
           <RouterLink to="/blog">blog</RouterLink>
         </span>
       </nav>
