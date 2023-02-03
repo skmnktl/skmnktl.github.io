@@ -16,6 +16,7 @@
     <ul>
       <li>Developed and rebuilt several APIs integrating various AWS services into Samsung's channel service to improve
         code modularity and cleanliness
+     <li>automated deployment of APIs to Kubernetes cluster via Github Actions and Helm charts for faster testing in dev-stage and push to prod</li>
       </li>
     </ul>
     <span class="relevant-skills"><em>Relevant Skills</em> Python, Go, AWS, Docker, Github Actions, Microservice Design &amp; Implementation </span>
@@ -78,6 +79,8 @@
         Tableau, and Python thereby allowing decision-makers daily data refreshes rather than monthly
       </li>
     </ul>
+    <span class="relevant-skills"><em>Relevant Skills</em> Python, HiveQL, SQL, VBA, Tableau, Product Analytics, Prediction </span>
+
     </section>
 
     <section class="employer">
@@ -96,7 +99,7 @@
         thereby convincing 3+ partners to share sensitive data with the research team
       </li>
     </ul>
-    <span class="relevant-skills"><em>Relevant Skills</em> Python, Java, NLP (Spacy, Text Parsing, Speaker Taggin, Tokenization, Word Embeddings), NumPy, Data Engineering, EML Files </span>
+    <span class="relevant-skills"><em>Relevant Skills</em> Python, Java, NLP (Spacy, Text Parsing, Speaker Tagging, Tokenization, Word Embeddings), NumPy, Data Engineering, EML Files </span>
     </section>
     </section>
 
