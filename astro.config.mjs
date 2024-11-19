@@ -6,7 +6,7 @@ import remarkSidenote from './src/plugins/remark-sidenotes.mjs';
 
 export default defineConfig({
   site: 'https://skmnktl.github.io', 
-  base: '', 
+  base: '/', 
   integrations: [mdx()],
   markdown: {
     remarkPlugins: [remarkMath, remarkSidenote],
