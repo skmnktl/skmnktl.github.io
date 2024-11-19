@@ -1,0 +1,115 @@
+---
+import Header from '../components/Header.astro';
+import '../styles/global.css';
+import '../styles/sidenotes.css';
+
+const { frontmatter } = Astro.props;
+const postDate = new Date(frontmatter.date);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{frontmatter.title}</title>
+    <meta name="description" content={frontmatter.description} />
+    <link rel="stylesheet" href="https://use.typekit.net/igz8vpp.css">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+    "></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.0.0/index.css">
+  </head>
+  <body>
+    <Header />
+    <main class="container">
+      <article>
+        <header class="post-header">
+          <h1>{frontmatter.title}</h1>
+          <time datetime={postDate.toISOString()}>
+            {postDate.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </time>
+        </header>
+        <div class="content">
+          <slot />
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
+
+<style>
+  .post-header {
+    margin: 4rem 0 3rem;
+    text-align: center;
+  }
+
+  .post-header h1 {
+    font-family: adobe-garamond-pro, Georgia, serif;
+    font-weight: 400;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  time {
+    font-family: 'Work Sans', sans-serif;
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    font-weight: 300;
+  }
+
+  .content {
+    margin-bottom: 4rem;
+    font-family: adobe-garamond-pro, Georgia, serif;
+    font-size: 1.25rem;
+    line-height: 1.7;
+  }
+
+  .content :global(h2),
+  .content :global(h3),
+  .content :global(h4) {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+  }
+
+  .content :global(p) {
+    margin: 1.5em 0;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .post-header {
+      margin: 2rem 0 2rem;
+    }
+
+    .post-header h1 {
+      font-size: 2rem;
+    }
+
+    .content {
+      font-size: 1.125rem;
+    }
+  }
+</style>

@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-2q5oecfc> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Code Quality</title><meta name="description" content="Summaries of other people's thoughts on code quality reduced to a checklist."><link rel="stylesheet" href="https://use.typekit.net/igz8vpp.css"><link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+    "></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.0.0/index.css"><style>header[data-astro-cid-3ef6ksr2]{padding:1rem 0;margin-bottom:1rem}nav[data-astro-cid-3ef6ksr2]{display:flex;justify-content:center}ul[data-astro-cid-3ef6ksr2]{display:flex;gap:2rem;list-style:none;margin:0;padding:0}.nav-link[data-astro-cid-3ef6ksr2]{color:var(--color-text-light);text-decoration:none;font-size:.9rem;text-transform:uppercase;letter-spacing:.05em;transition:color .2s}.nav-link[data-astro-cid-3ef6ksr2]:hover,.nav-link[data-astro-cid-3ef6ksr2].active{color:var(--color-text)}:root{--font-serif: adobe-garamond-pro, Georgia, serif;--font-sans: "Work Sans", system-ui, sans-serif;--font-mono: "JetBrains Mono", monospace;--color-bg: #ffffff;--color-text: #2d3748;--color-text-light: #718096;--color-accent: #3182ce;--color-border: #e2e8f0;--color-code-bg: #f7fafc;--color-bg-dark: #1a202c;--color-text-dark: #e2e8f0;--color-text-light-dark: #a0aec0;--color-accent-dark: #63b3ed;--color-border-dark: #2d3748;--color-code-bg-dark: #2d3748}html{font-family:var(--font-serif);font-size:18px;line-height:1.7;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-feature-settings:"kern" 1,"liga" 1}body{margin:0;padding:0;background:var(--color-bg);color:var(--color-text)}h1,h2,h3,h4,h5,h6{font-family:var(--font-sans);font-weight:500;line-height:1.2;letter-spacing:-.02em}h1{font-family:var(--font-serif);font-size:2.5rem;margin-top:0;font-weight:400}h2{font-size:1.75rem}h3{font-size:1.5rem}h4{font-size:1.25rem}p{margin:1.5rem 0}nav,button,input,select,footer{font-family:var(--font-sans)}pre,code{font-family:var(--font-mono);font-size:.9em}pre{padding:1.25rem;border-radius:6px;background:var(--color-code-bg);overflow-x:auto}.katex{font-size:1.1em!important}.katex-display{margin:2.5rem 0!important;padding:0 1rem}.container{max-width:680px;margin:0 auto;padding:0 1.5rem}a{color:var(--color-accent);text-decoration:none;transition:color .2s ease}a:hover{color:var(--color-text)}ul,ol{padding-left:1.5rem;margin:1.5rem 0}li{margin:.5rem 0}blockquote{font-family:var(--font-serif);margin:2rem 0;padding-left:1.5rem;border-left:3px solid var(--color-border);font-style:italic;color:var(--color-text-light);font-size:1.1em}@media (prefers-color-scheme: dark){body{background:var(--color-bg-dark);color:var(--color-text-dark)}pre,code{background:var(--color-code-bg-dark)}}.container{max-width:900px;margin:0 auto;padding:0 1.5rem}.intro{margin:8rem 0;text-align:center}.intro h1{font-family:adobe-garamond-pro,Georgia,serif;font-weight:400;font-size:3rem;margin-bottom:1.5rem;color:var(--color-text)}.intro p{font-family:Work Sans,sans-serif;font-weight:300;font-size:1.25rem;color:var(--color-text-light);max-width:28rem;margin:0 auto;line-height:1.6}@media (max-width: 640px){.intro{margin:4rem 0}.intro h1{font-size:2.5rem}.intro p{font-size:1.125rem}}
+article{position:relative;max-width:650px;margin:0 auto}.content{position:relative}.sidenote-anchor{cursor:pointer;position:relative;text-decoration:none}.sidenote-number{font-size:.75rem;font-weight:400;color:var(--color-accent);vertical-align:super;line-height:0}.sidenote{display:none;font-family:var(--font-sans);font-size:.875rem;color:var(--color-text-light);line-height:1.6}@media (min-width: 1280px){.content{padding-right:1rem}.sidenote{display:block;position:absolute;left:calc(100% + 3rem);width:250px;margin-top:-1.5rem;padding-left:1rem;border-left:2px solid var(--color-border)}.sidenote p{margin:0}.sidenote+.sidenote{margin-top:1rem}}@media (max-width: 1279px){.sidenote-anchor{cursor:pointer}.sidenote{display:none;position:fixed;bottom:1rem;left:1rem;right:1rem;background:var(--color-bg);padding:1rem;border-radius:8px;box-shadow:0 4px 12px #0000001a;border:1px solid var(--color-border);z-index:100;max-height:50vh;overflow-y:auto}.sidenote.show{display:block}}@media (prefers-color-scheme: dark){.sidenote{border-left-color:var(--color-border-dark)}@media (max-width: 1279px){.sidenote{background:var(--color-bg-dark);border-color:var(--color-border-dark);box-shadow:0 4px 12px #0000004d}}}.post-header[data-astro-cid-2q5oecfc]{margin:4rem 0 3rem;text-align:center}.post-header[data-astro-cid-2q5oecfc] h1[data-astro-cid-2q5oecfc]{font-family:adobe-garamond-pro,Georgia,serif;font-weight:400;font-size:2.5rem;line-height:1.2;margin-bottom:.5rem}time[data-astro-cid-2q5oecfc]{font-family:Work Sans,sans-serif;color:var(--color-text-light);font-size:.9rem;font-weight:300}.content[data-astro-cid-2q5oecfc]{margin-bottom:4rem;font-family:adobe-garamond-pro,Georgia,serif;font-size:1.25rem;line-height:1.7}.content[data-astro-cid-2q5oecfc] h2,.content[data-astro-cid-2q5oecfc] h3,.content[data-astro-cid-2q5oecfc] h4{font-family:Work Sans,sans-serif;font-weight:500;margin-top:2em;margin-bottom:.5em}.content[data-astro-cid-2q5oecfc] p{margin:1.5em 0}.container[data-astro-cid-2q5oecfc]{max-width:680px;margin:0 auto;padding:0 1.5rem}@media (max-width: 768px){.post-header[data-astro-cid-2q5oecfc]{margin:2rem 0}.post-header[data-astro-cid-2q5oecfc] h1[data-astro-cid-2q5oecfc]{font-size:2rem}.content[data-astro-cid-2q5oecfc]{font-size:1.125rem}}
+</style></head> <body data-astro-cid-2q5oecfc> <header data-astro-cid-3ef6ksr2> <nav data-astro-cid-3ef6ksr2> <ul data-astro-cid-3ef6ksr2> <li data-astro-cid-3ef6ksr2> <a href="/" class="nav-link" data-astro-cid-3ef6ksr2> Home </a> </li><li data-astro-cid-3ef6ksr2> <a href="/blog" class="nav-link active" data-astro-cid-3ef6ksr2> Blog </a> </li><li data-astro-cid-3ef6ksr2> <a href="/photography" class="nav-link" data-astro-cid-3ef6ksr2> Photography </a> </li> </ul> </nav> </header>  <main class="container" data-astro-cid-2q5oecfc> <article data-astro-cid-2q5oecfc> <header class="post-header" data-astro-cid-2q5oecfc> <h1 data-astro-cid-2q5oecfc>Code Quality</h1> <time datetime="2024-08-23T00:00:00.000Z" data-astro-cid-2q5oecfc> August 22, 2024 </time> </header> <div class="content" data-astro-cid-2q5oecfc>  <h1 id="writing-code--------------span-classrelative-sidenote-anchor-align-super----------------span-classsidenote-number-data-sidenote-id11span--------------span--------------span-idsidenote-placeholder-1-classsidenote----------------spanpspan-classfont-xxs-align-super-font-italic1-spannone-of-this-is-original-thought-its-just-a-summary-of-other-sources-on-code-qualitypspan--------------span-----------">Writing Code
+              <span class="relative sidenote-anchor align-super">
+                <span class="sidenote-number" data-sidenote-id="1">1</span>
+              </span>
+              <span id="sidenote-placeholder-1" class="sidenote">
+                <span><p><span class="font-xxs align-super font-italic">[1] </span>None of this is original thought; it’s just a summary of other sources on code quality.</p></span>
+              </span>
+            </h1>
+<h2 id="goals">Goals</h2>
+<p>Code should be <em>performant</em>, <em>easy to read</em>, <em>easy to change</em>, and <em>easy to test</em>.</p>
+<h2 id="process">Process</h2>
+<h3 id="before-pr">Before PR</h3>
+<ul>
+<li>What are you even building?</li>
+<li>Design</li>
+<li> Clarify Scope</li>
+<li> Define PR Chunks
+<ul>
+<li>PRs should cascade; test the chunks independently and test them all together too before merging into <code>main</code>.</li>
+</ul>
+</li>
+<li> Review Design (if appropriate)</li>
+</ul>
+<h3 id="pr">PR</h3>
+<ul>
+<li> Code</li>
+<li> Write Tests</li>
+<li> Refactor and Tidy for Code Quality (see below)</li>
+<li> Test locally</li>
+<li> Tag with RC</li>
+<li> Deploy to Stage and Test</li>
+<li> <code>git checkout main; git pull; git checkout feature-branch; git merge main</code></li>
+<li> Perform Final Tests on RC after main merge</li>
+<li> Submit PR</li>
+<li> Address PR Comments</li>
+<li> Do NOT Merge</li>
+</ul>
+<h3 id="deployment--------------span-classrelative-sidenote-anchor-align-super----------------span-classsidenote-number-data-sidenote-id22span--------------span--------------span-idsidenote-placeholder-2-classsidenote----------------spanpspan-classfont-xxs-align-super-font-italic2-spanafter-pr-approvalpspan--------------span-----------">Deployment
+              <span class="relative sidenote-anchor align-super">
+                <span class="sidenote-number" data-sidenote-id="2">2</span>
+              </span>
+              <span id="sidenote-placeholder-2" class="sidenote">
+                <span><p><span class="font-xxs align-super font-italic">[2] </span>After PR Approval</p></span>
+              </span>
+            </h3>
+<ul>
+<li> Send Release Notification</li>
+<li> Release Meeting</li>
+<li> Merge main back in.
+              <span class="relative sidenote-anchor align-super">
+                <span class="sidenote-number" data-sidenote-id="3">3</span>
+              </span>
+              <span id="sidenote-placeholder-3" class="sidenote">
+                <span><p><span class="font-xxs align-super font-italic">[3] </span><code>git checkout main; git pull; git checkout feature-branch; git merge main</code></p></span>
+              </span>
+            
+<ul>
+<li> Merge Conflicts: Do we need to review again?</li>
+</ul>
+</li>
+<li> Merge, Immediately tag Release and Deploy</li>
+</ul>
+<h2 id="design--style-philosophies">Design &#x26; Style Philosophies</h2>
+<h3 id="easy-to-read--------------span-classrelative-sidenote-anchor-align-super----------------span-classsidenote-number-data-sidenote-id44span--------------span--------------span-idsidenote-placeholder-4-classsidenote----------------spanpspan-classfont-xxs-align-super-font-italic4-spanemtidy-firstem-by-kent-beckpspan--------------span-----------">Easy to Read
+              <span class="relative sidenote-anchor align-super">
+                <span class="sidenote-number" data-sidenote-id="4">4</span>
+              </span>
+              <span id="sidenote-placeholder-4" class="sidenote">
+                <span><p><span class="font-xxs align-super font-italic">[4] </span><em>Tidy First?</em> by Kent Beck</p></span>
+              </span>
+            </h3>
+<ol>
+<li>Avoid nested or chained conditionals with <em>guard clauses</em> where they increase simplicity.</li>
+<li>Remove dead code carefully.</li>
+<li>Refactor <em>symmetric code</em> to use common patterns or abstractions; conform to standard patterns used across the team.</li>
+<li>Write a cleaner, simpler <em>new interface</em> for an existing implementation— keep the old implementation till backward compatibility is unnecessary.</li>
+<li>Order
+<ul>
+<li>Ensure that code reads logically from top to bottom. Reorder code blocks to follow the natural order of execution.</li>
+<li>Code should cohere at each level:
+<ul>
+<li>Code Blocks, Functions/Methods
+              <span class="relative sidenote-anchor align-super">
+                <span class="sidenote-number" data-sidenote-id="5">5</span>
+              </span>, Classes/Modules
+              <span id="sidenote-placeholder-5" class="sidenote">
+                <span><p><span class="font-xxs align-super font-italic">[5] </span>A <em>function</em> associated with a specific object is a <em>method</em>.</p></span>
+              </span>
+            </li>
+<li>Variables, Constants, Parameters</li>
+<li>Code Blocks
+<ul>
+<li>Chunk complex statements into logical blocks; use whitespace appropriately.</li>
+<li>Introduce intermediate values to reduce cognitive load.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Declare and initialize variables in one place; otherwise, refactor code.</li>
+<li>Explaining: Variables, Constants, and Parameters
+<ul>
+<li>Use explanatory names, and where names are insufficient, use comments.</li>
+<li>Comments should be about why rather than what. If a comment about</li>
+</ul>
+</li>
+<li>Extract helper functions or methods; reduce repetition.</li>
+<li>It can help to dump all logic into a single place before refactoring.</li>
+<li>Add comments to explain why rather than what; if you must explain what, it bears thinking about how you might refactor the code.</li>
+<li>Remove unnecessary comments; make sure to update existing ones.</li>
+</ol>
+<h3 id="easy-to-test--------------span-classrelative-sidenote-anchor-align-super----------------span-classsidenote-number-data-sidenote-id66span--------------span--------------span-idsidenote-placeholder-6-classsidenote----------------spanpspan-classfont-xxs-align-super-font-italic6-spana-hrefhttpstestinggoogleblogcom200808by-miko-hevery-so-you-decided-tohtmlmisko-heveryapspan--------------span-----------">Easy to Test
+              <span class="relative sidenote-anchor align-super">
+                <span class="sidenote-number" data-sidenote-id="6">6</span>
+              </span>
+              <span id="sidenote-placeholder-6" class="sidenote">
+                <span><p><span class="font-xxs align-super font-italic">[6] </span><a href="https://testing.googleblog.com/2008/08/by-miko-hevery-so-you-decided-to.html">Misko Hevery</a></p></span>
+              </span>
+            </h3>
+<blockquote>
+<p>There are no tricks to writing tests; there are only tricks to writing testable code. -- Misko Hevery</p>
+</blockquote>
+<ol>
+<li>Separate object construction and the application's work.</li>
+<li>Ask for things, don't look for things 
+              <span class="relative sidenote-anchor align-super">
+                <span class="sidenote-number" data-sidenote-id="7">7</span>
+              </span>
+              <span id="sidenote-placeholder-7" class="sidenote">
+                <span><p><span class="font-xxs align-super font-italic">[7] </span>Dependency Injection / Law of Demeter</p></span>
+              </span>
+            </li>
+<li>Avoid
+<ul>
+<li>Work within Constructors</li>
+<li>Global State</li>
+<li>Singletons
+              <span class="relative sidenote-anchor align-super">
+                <span class="sidenote-number" data-sidenote-id="8">8</span>
+              </span>
+              <span id="sidenote-placeholder-8" class="sidenote">
+                <span><p><span class="font-xxs align-super font-italic">[8] </span>This is just global state in disguise.</p></span>
+              </span>
+            </li>
+<li>Static Methods</li>
+<li>Mixing Concerns
+              <span class="relative sidenote-anchor align-super">
+                <span class="sidenote-number" data-sidenote-id="9">9</span>
+              </span>
+              <span id="sidenote-placeholder-9" class="sidenote">
+                <span><p><span class="font-xxs align-super font-italic">[9] </span>enforce single responsibilty</p></span>
+              </span>
+            </li>
+</ul>
+</li>
+<li>Favor
+<ul>
+<li>Composition over Inheritance</li>
+<li>Polymorphism over Conditionals</li>
+</ul>
+</li>
+<li>Separate data from the work.</li>
+</ol>
+<h3 id="easy-to-change--------------span-classrelative-sidenote-anchor-align-super----------------span-classsidenote-number-data-sidenote-id1010span--------------span--------------span-idsidenote-placeholder-10-classsidenote----------------spanpspan-classfont-xxs-align-super-font-italic10-spanjon-ousterhouts-ema-philosophy-of-software-designem-perhapspspan--------------span-----------">Easy To Change
+              <span class="relative sidenote-anchor align-super">
+                <span class="sidenote-number" data-sidenote-id="10">10</span>
+              </span>
+              <span id="sidenote-placeholder-10" class="sidenote">
+                <span><p><span class="font-xxs align-super font-italic">[10] </span>Jon Ousterhout's <em>A Philosophy of Software Design</em>, perhaps?</p></span>
+              </span>
+            </h3>
+<ol>
+<li>Complexity is anything that makes a system hard to understand or change.</li>
+</ol>
+<ul>
+<li></li>
+</ul>
+<h3 id="easy-to-use">Easy to Use</h3>  </div> </article> </main> </body></html>

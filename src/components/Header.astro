@@ -1,0 +1,64 @@
+---
+const navItems = [
+  { label: 'Home', path: '/' },
+  { label: 'Blog', path: '/blog' },
+  { label: 'Photography', path: '/photography' }
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header>
+  <nav>
+    <ul>
+      {navItems.map(({ label, path }) => (
+        <li>
+          <a 
+            href={path} 
+            class:list={[
+              'nav-link',
+              { active: currentPath === path || 
+                (path !== '/' && currentPath.startsWith(path)) }
+            ]}
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<style>
+  header {
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+  }
+
+  ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-text);
+  }
+</style>

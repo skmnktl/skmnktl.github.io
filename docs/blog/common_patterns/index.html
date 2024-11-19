@@ -1,0 +1,815 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-2q5oecfc> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Common Algorithmic Patterns</title><meta name="description" content="Certain patterns repeat ad nauseum; these are good candidates for practice and memorization."><link rel="stylesheet" href="https://use.typekit.net/igz8vpp.css"><link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+    "></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.0.0/index.css"><style>header[data-astro-cid-3ef6ksr2]{padding:1rem 0;margin-bottom:1rem}nav[data-astro-cid-3ef6ksr2]{display:flex;justify-content:center}ul[data-astro-cid-3ef6ksr2]{display:flex;gap:2rem;list-style:none;margin:0;padding:0}.nav-link[data-astro-cid-3ef6ksr2]{color:var(--color-text-light);text-decoration:none;font-size:.9rem;text-transform:uppercase;letter-spacing:.05em;transition:color .2s}.nav-link[data-astro-cid-3ef6ksr2]:hover,.nav-link[data-astro-cid-3ef6ksr2].active{color:var(--color-text)}:root{--font-serif: adobe-garamond-pro, Georgia, serif;--font-sans: "Work Sans", system-ui, sans-serif;--font-mono: "JetBrains Mono", monospace;--color-bg: #ffffff;--color-text: #2d3748;--color-text-light: #718096;--color-accent: #3182ce;--color-border: #e2e8f0;--color-code-bg: #f7fafc;--color-bg-dark: #1a202c;--color-text-dark: #e2e8f0;--color-text-light-dark: #a0aec0;--color-accent-dark: #63b3ed;--color-border-dark: #2d3748;--color-code-bg-dark: #2d3748}html{font-family:var(--font-serif);font-size:18px;line-height:1.7;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-feature-settings:"kern" 1,"liga" 1}body{margin:0;padding:0;background:var(--color-bg);color:var(--color-text)}h1,h2,h3,h4,h5,h6{font-family:var(--font-sans);font-weight:500;line-height:1.2;letter-spacing:-.02em}h1{font-family:var(--font-serif);font-size:2.5rem;margin-top:0;font-weight:400}h2{font-size:1.75rem}h3{font-size:1.5rem}h4{font-size:1.25rem}p{margin:1.5rem 0}nav,button,input,select,footer{font-family:var(--font-sans)}pre,code{font-family:var(--font-mono);font-size:.9em}pre{padding:1.25rem;border-radius:6px;background:var(--color-code-bg);overflow-x:auto}.katex{font-size:1.1em!important}.katex-display{margin:2.5rem 0!important;padding:0 1rem}.container{max-width:680px;margin:0 auto;padding:0 1.5rem}a{color:var(--color-accent);text-decoration:none;transition:color .2s ease}a:hover{color:var(--color-text)}ul,ol{padding-left:1.5rem;margin:1.5rem 0}li{margin:.5rem 0}blockquote{font-family:var(--font-serif);margin:2rem 0;padding-left:1.5rem;border-left:3px solid var(--color-border);font-style:italic;color:var(--color-text-light);font-size:1.1em}@media (prefers-color-scheme: dark){body{background:var(--color-bg-dark);color:var(--color-text-dark)}pre,code{background:var(--color-code-bg-dark)}}.container{max-width:900px;margin:0 auto;padding:0 1.5rem}.intro{margin:8rem 0;text-align:center}.intro h1{font-family:adobe-garamond-pro,Georgia,serif;font-weight:400;font-size:3rem;margin-bottom:1.5rem;color:var(--color-text)}.intro p{font-family:Work Sans,sans-serif;font-weight:300;font-size:1.25rem;color:var(--color-text-light);max-width:28rem;margin:0 auto;line-height:1.6}@media (max-width: 640px){.intro{margin:4rem 0}.intro h1{font-size:2.5rem}.intro p{font-size:1.125rem}}
+article{position:relative;max-width:650px;margin:0 auto}.content{position:relative}.sidenote-anchor{cursor:pointer;position:relative;text-decoration:none}.sidenote-number{font-size:.75rem;font-weight:400;color:var(--color-accent);vertical-align:super;line-height:0}.sidenote{display:none;font-family:var(--font-sans);font-size:.875rem;color:var(--color-text-light);line-height:1.6}@media (min-width: 1280px){.content{padding-right:1rem}.sidenote{display:block;position:absolute;left:calc(100% + 3rem);width:250px;margin-top:-1.5rem;padding-left:1rem;border-left:2px solid var(--color-border)}.sidenote p{margin:0}.sidenote+.sidenote{margin-top:1rem}}@media (max-width: 1279px){.sidenote-anchor{cursor:pointer}.sidenote{display:none;position:fixed;bottom:1rem;left:1rem;right:1rem;background:var(--color-bg);padding:1rem;border-radius:8px;box-shadow:0 4px 12px #0000001a;border:1px solid var(--color-border);z-index:100;max-height:50vh;overflow-y:auto}.sidenote.show{display:block}}@media (prefers-color-scheme: dark){.sidenote{border-left-color:var(--color-border-dark)}@media (max-width: 1279px){.sidenote{background:var(--color-bg-dark);border-color:var(--color-border-dark);box-shadow:0 4px 12px #0000004d}}}.post-header[data-astro-cid-2q5oecfc]{margin:4rem 0 3rem;text-align:center}.post-header[data-astro-cid-2q5oecfc] h1[data-astro-cid-2q5oecfc]{font-family:adobe-garamond-pro,Georgia,serif;font-weight:400;font-size:2.5rem;line-height:1.2;margin-bottom:.5rem}time[data-astro-cid-2q5oecfc]{font-family:Work Sans,sans-serif;color:var(--color-text-light);font-size:.9rem;font-weight:300}.content[data-astro-cid-2q5oecfc]{margin-bottom:4rem;font-family:adobe-garamond-pro,Georgia,serif;font-size:1.25rem;line-height:1.7}.content[data-astro-cid-2q5oecfc] h2,.content[data-astro-cid-2q5oecfc] h3,.content[data-astro-cid-2q5oecfc] h4{font-family:Work Sans,sans-serif;font-weight:500;margin-top:2em;margin-bottom:.5em}.content[data-astro-cid-2q5oecfc] p{margin:1.5em 0}.container[data-astro-cid-2q5oecfc]{max-width:680px;margin:0 auto;padding:0 1.5rem}@media (max-width: 768px){.post-header[data-astro-cid-2q5oecfc]{margin:2rem 0}.post-header[data-astro-cid-2q5oecfc] h1[data-astro-cid-2q5oecfc]{font-size:2rem}.content[data-astro-cid-2q5oecfc]{font-size:1.125rem}}
+</style></head> <body data-astro-cid-2q5oecfc> <header data-astro-cid-3ef6ksr2> <nav data-astro-cid-3ef6ksr2> <ul data-astro-cid-3ef6ksr2> <li data-astro-cid-3ef6ksr2> <a href="/" class="nav-link" data-astro-cid-3ef6ksr2> Home </a> </li><li data-astro-cid-3ef6ksr2> <a href="/blog" class="nav-link active" data-astro-cid-3ef6ksr2> Blog </a> </li><li data-astro-cid-3ef6ksr2> <a href="/photography" class="nav-link" data-astro-cid-3ef6ksr2> Photography </a> </li> </ul> </nav> </header>  <main class="container" data-astro-cid-2q5oecfc> <article data-astro-cid-2q5oecfc> <header class="post-header" data-astro-cid-2q5oecfc> <h1 data-astro-cid-2q5oecfc>Common Algorithmic Patterns</h1> <time datetime="2023-12-20T00:00:00.000Z" data-astro-cid-2q5oecfc> December 19, 2023 </time> </header> <div class="content" data-astro-cid-2q5oecfc>  <h2 id="search">Search</h2>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> binary_search</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">nums</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">target</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">    low, high </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> 0</span><span style="color:#F8F8F2">, </span><span style="color:#8BE9FD">len</span><span style="color:#F8F8F2">(nums) </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    while</span><span style="color:#F8F8F2"> low </span><span style="color:#FF79C6">&#x3C;=</span><span style="color:#F8F8F2"> high:</span></span>
+<span class="line"><span style="color:#F8F8F2">        mid </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> (low </span><span style="color:#FF79C6">+</span><span style="color:#F8F8F2"> high) </span><span style="color:#FF79C6">//</span><span style="color:#BD93F9"> 2</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#F8F8F2"> nums[mid] </span><span style="color:#FF79C6">==</span><span style="color:#F8F8F2"> target:</span></span>
+<span class="line"><span style="color:#FF79C6">            return</span><span style="color:#F8F8F2"> (</span><span style="color:#BD93F9">True</span><span style="color:#F8F8F2">, mid)</span></span>
+<span class="line"><span style="color:#FF79C6">        elif</span><span style="color:#F8F8F2"> nums[mid] </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> target:</span></span>
+<span class="line"><span style="color:#F8F8F2">            low </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> mid </span><span style="color:#FF79C6">+</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">        else</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">            high </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> mid </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> (</span><span style="color:#BD93F9">False</span><span style="color:#F8F8F2">, low)</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> bisect</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">a</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">target</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">left</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">right</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">compare</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">    while</span><span style="color:#F8F8F2"> left </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> right:</span></span>
+<span class="line"><span style="color:#F8F8F2">        mid </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> (left </span><span style="color:#FF79C6">+</span><span style="color:#F8F8F2"> right) </span><span style="color:#FF79C6">//</span><span style="color:#BD93F9"> 2</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#F8F8F2"> compare(a[mid], target):</span></span>
+<span class="line"><span style="color:#F8F8F2">            left </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> mid </span><span style="color:#FF79C6">+</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">        else</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">            right </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> mid</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> left</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F8F8F2">a </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> [</span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">2</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">3</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">4</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">4</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">4</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">4</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">4</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">4</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">5</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">6</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">7</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">8</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">9</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">10</span><span style="color:#F8F8F2">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F8F8F2">start </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> bisect(a, </span><span style="color:#BD93F9">4</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">, </span><span style="color:#8BE9FD">len</span><span style="color:#F8F8F2">(a) </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">, </span><span style="color:#FF79C6">lambda</span><span style="color:#FFB86C;font-style:italic"> x</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">y</span><span style="color:#F8F8F2">: x </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> y)  </span><span style="color:#6272A4"># 4</span></span>
+<span class="line"><span style="color:#F8F8F2">end </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> bisect(a, </span><span style="color:#BD93F9">4</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">, </span><span style="color:#8BE9FD">len</span><span style="color:#F8F8F2">(a) </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">, </span><span style="color:#FF79C6">lambda</span><span style="color:#FFB86C;font-style:italic"> x</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">y</span><span style="color:#F8F8F2">: x </span><span style="color:#FF79C6">&#x3C;=</span><span style="color:#F8F8F2"> y)  </span><span style="color:#6272A4"># 10 (not 9)</span></span>
+<span class="line"><span style="color:#6272A4"># The 4s are located at indices range(4,10).</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> find_rotation_point</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">arr</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">    left, right </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> 0</span><span style="color:#F8F8F2">, </span><span style="color:#8BE9FD">len</span><span style="color:#F8F8F2">(arr) </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#F8F8F2">    </span></span>
+<span class="line"><span style="color:#6272A4">    # If the array is not rotated (smallest element is at the start)</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> arr[left] </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> arr[right]:</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#BD93F9"> 0</span></span>
+<span class="line"><span style="color:#F8F8F2">    </span></span>
+<span class="line"><span style="color:#FF79C6">    while</span><span style="color:#F8F8F2"> left </span><span style="color:#FF79C6">&#x3C;=</span><span style="color:#F8F8F2"> right:</span></span>
+<span class="line"><span style="color:#F8F8F2">        mid </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> left </span><span style="color:#FF79C6">+</span><span style="color:#F8F8F2"> (right </span><span style="color:#FF79C6">-</span><span style="color:#F8F8F2"> left) </span><span style="color:#FF79C6">//</span><span style="color:#BD93F9"> 2</span></span>
+<span class="line"><span style="color:#F8F8F2">        </span></span>
+<span class="line"><span style="color:#6272A4">        # Check if mid is the rotation point</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#F8F8F2"> mid </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> right </span><span style="color:#FF79C6">and</span><span style="color:#F8F8F2"> arr[mid] </span><span style="color:#FF79C6">></span><span style="color:#F8F8F2"> arr[mid </span><span style="color:#FF79C6">+</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">]:</span></span>
+<span class="line"><span style="color:#FF79C6">            return</span><span style="color:#F8F8F2"> mid </span><span style="color:#FF79C6">+</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#F8F8F2"> mid </span><span style="color:#FF79C6">></span><span style="color:#F8F8F2"> left </span><span style="color:#FF79C6">and</span><span style="color:#F8F8F2"> arr[mid] </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> arr[mid </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">]:</span></span>
+<span class="line"><span style="color:#FF79C6">            return</span><span style="color:#F8F8F2"> mid</span></span>
+<span class="line"><span style="color:#F8F8F2">        </span></span>
+<span class="line"><span style="color:#6272A4">        # Decide the search space</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#F8F8F2"> arr[mid] </span><span style="color:#FF79C6">>=</span><span style="color:#F8F8F2"> arr[left]:</span></span>
+<span class="line"><span style="color:#F8F8F2">            left </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> mid </span><span style="color:#FF79C6">+</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">        else</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">            right </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> mid </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#F8F8F2">    </span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#BD93F9"> 0</span></span>
+<span class="line"></span></code></pre>
+<h2 id="sorting">Sorting</h2>
+<h5 id="stability-in-sorting">Stability in Sorting</h5>
+<p>A stable sort preserves the order in which repeated elements were sorted after a subsequent sort.</p>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F8F8F2">x </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> [</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">B</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">C</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">7</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">C</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">8</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">D</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">D</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">4</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">E</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">9</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">E</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">10</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">F</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">2</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">F</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">7</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">F</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">9</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F8F8F2">x.sort(</span><span style="color:#FFB86C;font-style:italic">key</span><span style="color:#FF79C6">=lambda</span><span style="color:#FFB86C;font-style:italic"> x</span><span style="color:#F8F8F2">: x[</span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">])</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F8F8F2">output </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> [</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">B</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">C</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">7</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">C</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">8</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">D</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">D</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">4</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">E</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">9</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">E</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">10</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">F</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">2</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">F</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">7</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">    (</span><span style="color:#E9F284">"</span><span style="color:#F1FA8C">F</span><span style="color:#E9F284">"</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">9</span><span style="color:#F8F8F2">),</span></span>
+<span class="line"><span style="color:#F8F8F2">]</span></span>
+<span class="line"></span></code></pre>
+<p>Notice how ('D',1) precedes ('D', 4). Since the element by which the list was sorted is x[0], the repeated elements are kept in the same order as the original list.</p>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> selection_sort</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">arr</span><span style="color:#FF79C6">:</span><span style="color:#F8F8F2"> list[</span><span style="color:#8BE9FD;font-style:italic">int</span><span style="color:#F8F8F2">]) </span><span style="color:#FF79C6">-></span><span style="color:#F8F8F2"> list[</span><span style="color:#8BE9FD;font-style:italic">int</span><span style="color:#F8F8F2">]:</span></span>
+<span class="line"><span style="color:#FF79C6">    for</span><span style="color:#F8F8F2"> outer </span><span style="color:#FF79C6">in</span><span style="color:#8BE9FD"> range</span><span style="color:#F8F8F2">(</span><span style="color:#8BE9FD">len</span><span style="color:#F8F8F2">(arr)):</span></span>
+<span class="line"><span style="color:#F8F8F2">        minimum </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> outer</span></span>
+<span class="line"><span style="color:#FF79C6">        for</span><span style="color:#F8F8F2"> inner </span><span style="color:#FF79C6">in</span><span style="color:#8BE9FD"> range</span><span style="color:#F8F8F2">(outer, </span><span style="color:#8BE9FD">len</span><span style="color:#F8F8F2">(arr)):</span></span>
+<span class="line"><span style="color:#FF79C6">            if</span><span style="color:#F8F8F2"> arr[inner] </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> arr[minimum]:</span></span>
+<span class="line"><span style="color:#F8F8F2">                minimum </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> inner</span></span>
+<span class="line"><span style="color:#F8F8F2">        (arr[outer], arr[minimum]) </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> (arr[minimum], arr[outer])</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> arr</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> bubble</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">nums</span><span style="color:#FF79C6">:</span><span style="color:#F8F8F2"> List[</span><span style="color:#8BE9FD;font-style:italic">int</span><span style="color:#F8F8F2">]) </span><span style="color:#FF79C6">-></span><span style="color:#BD93F9"> None</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">    n </span><span style="color:#FF79C6">=</span><span style="color:#8BE9FD"> len</span><span style="color:#F8F8F2">(nums)</span></span>
+<span class="line"><span style="color:#FF79C6">    for</span><span style="color:#F8F8F2"> i </span><span style="color:#FF79C6">in</span><span style="color:#8BE9FD"> range</span><span style="color:#F8F8F2">(n):</span></span>
+<span class="line"><span style="color:#FF79C6">        for</span><span style="color:#F8F8F2"> j </span><span style="color:#FF79C6">in</span><span style="color:#8BE9FD"> range</span><span style="color:#F8F8F2">(n </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">, i, </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">            if</span><span style="color:#F8F8F2"> nums[j] </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> nums[j </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">]:</span></span>
+<span class="line"><span style="color:#F8F8F2">                nums[j], nums[j </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">] </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> nums[j </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">], nums[j]</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> insertion_sort</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">arr</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">    for</span><span style="color:#F8F8F2"> i </span><span style="color:#FF79C6">in</span><span style="color:#8BE9FD"> range</span><span style="color:#F8F8F2">(</span><span style="color:#8BE9FD">len</span><span style="color:#F8F8F2">(arr)):</span></span>
+<span class="line"><span style="color:#F8F8F2">        j </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> i</span></span>
+<span class="line"><span style="color:#FF79C6">        while</span><span style="color:#F8F8F2"> j </span><span style="color:#FF79C6">></span><span style="color:#BD93F9"> 0</span><span style="color:#FF79C6"> and</span><span style="color:#F8F8F2"> arr[j] </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> arr[j </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">]:</span></span>
+<span class="line"><span style="color:#F8F8F2">            arr[j], arr[j </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">] </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> arr[j </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">], arr[j]</span></span>
+<span class="line"><span style="color:#F8F8F2">            j </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> j </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> arr</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> msort</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">A</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">start</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">end</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> start </span><span style="color:#FF79C6">>=</span><span style="color:#F8F8F2"> end:</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6272A4">    # Divide</span></span>
+<span class="line"><span style="color:#F8F8F2">    mid </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> (start </span><span style="color:#FF79C6">+</span><span style="color:#F8F8F2"> end) </span><span style="color:#FF79C6">//</span><span style="color:#BD93F9"> 2</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6272A4">    # Conquer</span></span>
+<span class="line"><span style="color:#F8F8F2">    msort(A, start, mid)</span></span>
+<span class="line"><span style="color:#F8F8F2">    msort(A, mid </span><span style="color:#FF79C6">+</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">, end)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6272A4">    # Combine</span></span>
+<span class="line"><span style="color:#F8F8F2">    i </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> start</span></span>
+<span class="line"><span style="color:#F8F8F2">    j </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> mid </span><span style="color:#FF79C6">+</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#F8F8F2">    aux </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> []</span></span>
+<span class="line"><span style="color:#FF79C6">    while</span><span style="color:#F8F8F2"> i </span><span style="color:#FF79C6">&#x3C;=</span><span style="color:#F8F8F2"> mid </span><span style="color:#FF79C6">and</span><span style="color:#F8F8F2"> j </span><span style="color:#FF79C6">&#x3C;=</span><span style="color:#F8F8F2"> end:</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#F8F8F2"> A[i] </span><span style="color:#FF79C6">&#x3C;=</span><span style="color:#F8F8F2"> A[j]:</span></span>
+<span class="line"><span style="color:#F8F8F2">            aux.append(A[i])</span></span>
+<span class="line"><span style="color:#F8F8F2">            i </span><span style="color:#FF79C6">+=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">        else</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">            aux.append(A[j])</span></span>
+<span class="line"><span style="color:#F8F8F2">            j </span><span style="color:#FF79C6">+=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    while</span><span style="color:#F8F8F2"> i </span><span style="color:#FF79C6">&#x3C;=</span><span style="color:#F8F8F2"> mid:</span></span>
+<span class="line"><span style="color:#F8F8F2">        aux.append(A[i])</span></span>
+<span class="line"><span style="color:#F8F8F2">        i </span><span style="color:#FF79C6">+=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">    while</span><span style="color:#F8F8F2"> j </span><span style="color:#FF79C6">&#x3C;=</span><span style="color:#F8F8F2"> end:</span></span>
+<span class="line"><span style="color:#F8F8F2">        aux.append(A[j])</span></span>
+<span class="line"><span style="color:#F8F8F2">        j </span><span style="color:#FF79C6">+=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6272A4">    # Gather</span></span>
+<span class="line"><span style="color:#F8F8F2">    A[start </span><span style="color:#FF79C6">:</span><span style="color:#F8F8F2"> end </span><span style="color:#FF79C6">+</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">] </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> aux</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> mergesort</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">A</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">    msort(A, </span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">, </span><span style="color:#8BE9FD">len</span><span style="color:#F8F8F2">(A) </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> A</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6272A4"># Hoare's Partition -> 2-Pointer Paradigm</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">import</span><span style="color:#F8F8F2"> random</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> hoare</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">A</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">low</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">high</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">    pivot </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> A[random.randint(low, high)]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F8F8F2">    i, j </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> low </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">, high </span><span style="color:#FF79C6">+</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">    while</span><span style="color:#BD93F9"> True</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">        i </span><span style="color:#FF79C6">+=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">        while</span><span style="color:#F8F8F2"> A[i] </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> pivot:</span></span>
+<span class="line"><span style="color:#F8F8F2">            i </span><span style="color:#FF79C6">+=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#F8F8F2">        j </span><span style="color:#FF79C6">-=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">        while</span><span style="color:#F8F8F2"> A[j] </span><span style="color:#FF79C6">></span><span style="color:#F8F8F2"> pivot:</span></span>
+<span class="line"><span style="color:#F8F8F2">            j </span><span style="color:#FF79C6">-=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#F8F8F2"> i </span><span style="color:#FF79C6">>=</span><span style="color:#F8F8F2"> j:</span></span>
+<span class="line"><span style="color:#FF79C6">            return</span><span style="color:#F8F8F2"> j</span></span>
+<span class="line"><span style="color:#F8F8F2">        A[i], A[j] </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> A[j], A[i]</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> quicksort</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">A</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">low</span><span style="color:#FF79C6">=</span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">high</span><span style="color:#FF79C6">=</span><span style="color:#BD93F9">None</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> high </span><span style="color:#FF79C6">is</span><span style="color:#BD93F9"> None</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">        high </span><span style="color:#FF79C6">=</span><span style="color:#8BE9FD"> len</span><span style="color:#F8F8F2">(A) </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> low </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> high:</span></span>
+<span class="line"><span style="color:#F8F8F2">        p </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> hoare(A, low, high)</span></span>
+<span class="line"><span style="color:#F8F8F2">        quicksort(A, low, p)</span></span>
+<span class="line"><span style="color:#F8F8F2">        quicksort(A, p </span><span style="color:#FF79C6">+</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">, high)</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> A</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6272A4"># QuickSelect puts the 1-indexed kth smallest element at index k-1.</span></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> quickselect</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">A</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">k</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">l</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">r</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> l</span><span style="color:#FF79C6">==</span><span style="color:#F8F8F2">r:</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#F8F8F2"> A[l]</span></span>
+<span class="line"><span style="color:#F8F8F2">    p </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> hoare(A, l, r)</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> k</span><span style="color:#FF79C6">&#x3C;=</span><span style="color:#F8F8F2">p:</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#F8F8F2"> quickselect(A, k, l, p)</span></span>
+<span class="line"><span style="color:#FF79C6">    elif</span><span style="color:#F8F8F2"> k</span><span style="color:#FF79C6">==</span><span style="color:#F8F8F2">p</span><span style="color:#FF79C6">+</span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#F8F8F2"> A[p]</span></span>
+<span class="line"><span style="color:#FF79C6">    else</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#F8F8F2"> quickselect(A, k, p</span><span style="color:#FF79C6">+</span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">, r)</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6272A4"># Partition using 3-Pointers for Duplicates</span></span>
+<span class="line"><span style="color:#FF79C6">import</span><span style="color:#F8F8F2"> random</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> partition</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">A</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">low</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">high</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">    pivot </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> A[random.randint(low, high)]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F8F8F2">    l, r </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> low </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">, high </span><span style="color:#FF79C6">+</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#F8F8F2">    i </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> low</span></span>
+<span class="line"><span style="color:#FF79C6">    while</span><span style="color:#F8F8F2"> i </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> r:</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#F8F8F2"> A[i] </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> pivot:</span></span>
+<span class="line"><span style="color:#F8F8F2">            l </span><span style="color:#FF79C6">+=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#F8F8F2">            A[l], A[i] </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> A[i], A[l]</span></span>
+<span class="line"><span style="color:#F8F8F2">            i </span><span style="color:#FF79C6">+=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">        elif</span><span style="color:#F8F8F2"> A[i] </span><span style="color:#FF79C6">></span><span style="color:#F8F8F2"> pivot:</span></span>
+<span class="line"><span style="color:#F8F8F2">            r </span><span style="color:#FF79C6">-=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#F8F8F2">            A[r], A[i] </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> A[i], A[r]</span></span>
+<span class="line"><span style="color:#FF79C6">        else</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">            i </span><span style="color:#FF79C6">+=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> l, r</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> quick_sort</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">A</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">low</span><span style="color:#FF79C6">=</span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">high</span><span style="color:#FF79C6">=</span><span style="color:#BD93F9">None</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> high </span><span style="color:#FF79C6">is</span><span style="color:#BD93F9"> None</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">        high </span><span style="color:#FF79C6">=</span><span style="color:#8BE9FD"> len</span><span style="color:#F8F8F2">(A) </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> low </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> high:</span></span>
+<span class="line"><span style="color:#F8F8F2">        l, r </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> partition(A, low, high)</span></span>
+<span class="line"><span style="color:#F8F8F2">        quick_sort(A, low, l)</span></span>
+<span class="line"><span style="color:#F8F8F2">        quick_sort(A, r, high)</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> A</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6272A4"># Lomuto's Partition - 2-Pointer Paradigm</span></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> lomuto</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">A</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">low</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">high</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">    p </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> random.randint(low, high)</span></span>
+<span class="line"><span style="color:#F8F8F2">    A[p], A[high] </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> A[high], A[p]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F8F8F2">    i </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> low </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#6272A4">  # boundary for lower group</span></span>
+<span class="line"><span style="color:#FF79C6">    for</span><span style="color:#F8F8F2"> j </span><span style="color:#FF79C6">in</span><span style="color:#8BE9FD"> range</span><span style="color:#F8F8F2">(low, high):</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#F8F8F2"> A[j] </span><span style="color:#FF79C6">&#x3C;=</span><span style="color:#F8F8F2"> A[high]:</span></span>
+<span class="line"><span style="color:#6272A4">            # when j is less than or equal to the pivot the pivot</span></span>
+<span class="line"><span style="color:#6272A4">            # swap with the boundary index</span></span>
+<span class="line"><span style="color:#F8F8F2">            i </span><span style="color:#FF79C6">+=</span><span style="color:#BD93F9"> 1</span><span style="color:#6272A4">  # move boundary up</span></span>
+<span class="line"><span style="color:#F8F8F2">            A[i], A[j] </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> A[j], A[i]</span></span>
+<span class="line"><span style="color:#F8F8F2">    A[high], A[i </span><span style="color:#FF79C6">+</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">] </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> A[i </span><span style="color:#FF79C6">+</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">], A[high]</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> i </span><span style="color:#FF79C6">+</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> quick_sort</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">A</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">low</span><span style="color:#FF79C6">=</span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">high</span><span style="color:#FF79C6">=</span><span style="color:#BD93F9">None</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> high </span><span style="color:#FF79C6">is</span><span style="color:#BD93F9"> None</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">        high </span><span style="color:#FF79C6">=</span><span style="color:#8BE9FD"> len</span><span style="color:#F8F8F2">(A) </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> low </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> high:</span></span>
+<span class="line"><span style="color:#F8F8F2">        p </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> lomuto(A, low, high)</span></span>
+<span class="line"><span style="color:#F8F8F2">        quick_sort(A, low, p </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#F8F8F2">        quick_sort(A, p </span><span style="color:#FF79C6">+</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">, high)</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> A</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> heapify</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">arr</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">n</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">root</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">    largest </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> root</span></span>
+<span class="line"><span style="color:#F8F8F2">    l </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> 2</span><span style="color:#FF79C6"> *</span><span style="color:#F8F8F2"> root </span><span style="color:#FF79C6">+</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#F8F8F2">    r </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> 2</span><span style="color:#FF79C6"> *</span><span style="color:#F8F8F2"> root </span><span style="color:#FF79C6">+</span><span style="color:#BD93F9"> 2</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> l </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> n </span><span style="color:#FF79C6">and</span><span style="color:#F8F8F2"> arr[root] </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> arr[l]:</span></span>
+<span class="line"><span style="color:#F8F8F2">        largest </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> l</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> r </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> n </span><span style="color:#FF79C6">and</span><span style="color:#F8F8F2"> arr[largest] </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> arr[r]:</span></span>
+<span class="line"><span style="color:#F8F8F2">        largest </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> r</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> largest </span><span style="color:#FF79C6">!=</span><span style="color:#F8F8F2"> root:</span></span>
+<span class="line"><span style="color:#F8F8F2">        arr[root], arr[largest] </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> arr[largest], arr[root]</span></span>
+<span class="line"><span style="color:#F8F8F2">        heapify(arr, n, largest)</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> heap_sort</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">arr</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">    n </span><span style="color:#FF79C6">=</span><span style="color:#8BE9FD"> len</span><span style="color:#F8F8F2">(arr)</span></span>
+<span class="line"><span style="color:#FF79C6">    for</span><span style="color:#F8F8F2"> i </span><span style="color:#FF79C6">in</span><span style="color:#8BE9FD"> range</span><span style="color:#F8F8F2">(n </span><span style="color:#FF79C6">//</span><span style="color:#BD93F9"> 2</span><span style="color:#F8F8F2">, </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">, </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">        heapify(arr, n, i)</span></span>
+<span class="line"><span style="color:#FF79C6">    for</span><span style="color:#F8F8F2"> i </span><span style="color:#FF79C6">in</span><span style="color:#8BE9FD"> range</span><span style="color:#F8F8F2">(n </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">, </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">        arr[i], arr[</span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">] </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> arr[</span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">], arr[i]</span></span>
+<span class="line"><span style="color:#F8F8F2">        heapify(arr, i, </span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> arr</span></span>
+<span class="line"></span></code></pre>
+<h2 id="linked-lists">Linked Lists</h2>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">class</span><span style="color:#8BE9FD"> ListNode</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#BD93F9"> __init__</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">val</span><span style="color:#FF79C6">=</span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">next</span><span style="color:#FF79C6">=</span><span style="color:#BD93F9">None</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.val </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> val</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.next </span><span style="color:#FF79C6">=</span><span style="color:#8BE9FD"> next</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> reverse_linked_list</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">head</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">    prev </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> None</span></span>
+<span class="line"><span style="color:#F8F8F2">    curr </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> head</span></span>
+<span class="line"><span style="color:#FF79C6">    while</span><span style="color:#F8F8F2"> curr:</span></span>
+<span class="line"><span style="color:#F8F8F2">        next_node </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> curr.next</span></span>
+<span class="line"><span style="color:#F8F8F2">        curr.next </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> prev</span></span>
+<span class="line"><span style="color:#F8F8F2">        prev </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> curr</span></span>
+<span class="line"><span style="color:#F8F8F2">        curr </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> next_node</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> prev</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> get_midpoint</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">head</span><span style="color:#FF79C6">:</span><span style="color:#F8F8F2"> ListNode) </span><span style="color:#FF79C6">-></span><span style="color:#F8F8F2"> ListNode:</span></span>
+<span class="line"><span style="color:#F8F8F2">        slow </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> fast </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> head</span></span>
+<span class="line"><span style="color:#FF79C6">        while</span><span style="color:#F8F8F2"> fast </span><span style="color:#FF79C6">and</span><span style="color:#F8F8F2"> fast.next:</span></span>
+<span class="line"><span style="color:#F8F8F2">            slow </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> slow.next</span></span>
+<span class="line"><span style="color:#F8F8F2">            fast </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> fast.next.next</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#F8F8F2"> slow</span></span>
+<span class="line"></span></code></pre>
+<h2 id="recursion">Recursion</h2>
+<h3 id="combinatorial-enumeration">Combinatorial Enumeration</h3>
+<p>| $$n$$ objects, $$k$$ spots | w/o replacement      | w/ replacement        |
+| -------------------------- | -------------------- | --------------------  |
+| ordered -> permutation     | $$\frac{n!}{k!}$$    | $$n
+              <span class="relative sidenote-anchor align-super">
+                <span class="sidenote-number" data-sidenote-id="1">1</span>
+              </span>$$             |
+| unordered -> combination   | $$n \choose k$$      | $${n+k-1 \choose k}$$ |
+              <span id="sidenote-placeholder-1" class="sidenote">
+                <span></span></span></p><p><span class="font-xxs align-super font-italic">[1] </span>k</p>
+              
+            <p></p>
+<p><em>Note</em> $$n \choose k = \frac{n!}{k!\times(n-k)!}$$</p>
+<h5 id="permutation-with-replacement--ordered-with-repetition--pincodes">Permutation with Replacement | Ordered with Repetition | Pincodes</h5>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6272A4">""" Generate all strings consisting of digits of length n. """</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> generate</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">n</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">    enumerator(</span><span style="color:#8BE9FD;font-style:italic">list</span><span style="color:#F8F8F2">(</span><span style="color:#8BE9FD">range</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9">10</span><span style="color:#F8F8F2">)), </span><span style="color:#E9F284">""</span><span style="color:#F8F8F2">, n)</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> enumerator</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">slate</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">solution</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">n</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> n </span><span style="color:#FF79C6">==</span><span style="color:#BD93F9"> 0</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#8BE9FD">        print</span><span style="color:#F8F8F2">(solution)</span></span>
+<span class="line"><span style="color:#FF79C6">    for</span><span style="color:#F8F8F2"> i </span><span style="color:#FF79C6">in</span><span style="color:#F8F8F2"> slate:</span></span>
+<span class="line"><span style="color:#F8F8F2">        enumerator(slate, solution </span><span style="color:#FF79C6">+</span><span style="color:#8BE9FD;font-style:italic"> str</span><span style="color:#F8F8F2">(i), n </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"></span></code></pre>
+<h5 id="permutation-without-replacement--ordered-without-repetition--seating-orders">Permutation without Replacement | Ordered without Repetition | Seating Orders</h5>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6272A4">""" Generate all orderings of a set of numbers. """</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> enumerator</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">slate</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">solution</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">outputs</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#8BE9FD"> len</span><span style="color:#F8F8F2">(slate) </span><span style="color:#FF79C6">==</span><span style="color:#BD93F9"> 0</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">        outputs.append(</span><span style="color:#8BE9FD;font-style:italic">list</span><span style="color:#F8F8F2">(solution))</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    for</span><span style="color:#F8F8F2"> i </span><span style="color:#FF79C6">in</span><span style="color:#8BE9FD;font-style:italic"> list</span><span style="color:#F8F8F2">(slate):</span></span>
+<span class="line"><span style="color:#F8F8F2">        slate.remove(i)</span></span>
+<span class="line"><span style="color:#F8F8F2">        enumerator(slate, solution </span><span style="color:#FF79C6">+</span><span style="color:#F8F8F2"> [i], outputs)</span></span>
+<span class="line"><span style="color:#F8F8F2">        slate.add(i)</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> outputs</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> get_permutations</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">arr</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">    slate </span><span style="color:#FF79C6">=</span><span style="color:#8BE9FD;font-style:italic"> set</span><span style="color:#F8F8F2">(arr)</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> enumerator(slate, [], outputs)</span></span>
+<span class="line"></span></code></pre>
+<h5 id="next-lexicographic-permutation">Next Lexicographic Permutation</h5>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6272A4">""" Generate next lexicographic permutation. """</span></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> next_permutation</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">nums</span><span style="color:#FF79C6">:</span><span style="color:#F8F8F2"> List[</span><span style="color:#8BE9FD;font-style:italic">int</span><span style="color:#F8F8F2">]) </span><span style="color:#FF79C6">-></span><span style="color:#BD93F9"> None</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#6272A4">    # Step 1: Find the largest index i such that nums[i] &#x3C; nums[i+1]</span></span>
+<span class="line"><span style="color:#6272A4">    # arr = [1,2,3,5,4]</span></span>
+<span class="line"><span style="color:#F8F8F2">    i </span><span style="color:#FF79C6">=</span><span style="color:#8BE9FD"> len</span><span style="color:#F8F8F2">(nums) </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 2</span></span>
+<span class="line"><span style="color:#FF79C6">    while</span><span style="color:#F8F8F2"> i </span><span style="color:#FF79C6">>=</span><span style="color:#BD93F9"> 0</span><span style="color:#FF79C6"> and</span><span style="color:#F8F8F2"> nums[i] </span><span style="color:#FF79C6">>=</span><span style="color:#F8F8F2"> nums[i</span><span style="color:#FF79C6">+</span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">]:</span></span>
+<span class="line"><span style="color:#F8F8F2">        i </span><span style="color:#FF79C6">-=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#6272A4">    # i = 2 where arr[i]=3</span></span>
+<span class="line"><span style="color:#6272A4">    # if i==-1, you can reverse and return the original here</span></span>
+<span class="line"><span style="color:#6272A4">    # Step 2: Find the largest index j such that nums[j] > nums[i]</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> i </span><span style="color:#FF79C6">>=</span><span style="color:#BD93F9"> 0</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">        j </span><span style="color:#FF79C6">=</span><span style="color:#8BE9FD"> len</span><span style="color:#F8F8F2">(nums) </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">        while</span><span style="color:#F8F8F2"> j </span><span style="color:#FF79C6">>=</span><span style="color:#BD93F9"> 0</span><span style="color:#FF79C6"> and</span><span style="color:#F8F8F2"> nums[j] </span><span style="color:#FF79C6">&#x3C;=</span><span style="color:#F8F8F2"> nums[i]:</span></span>
+<span class="line"><span style="color:#F8F8F2">            j </span><span style="color:#FF79C6">-=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#6272A4">        # find the largest inversion from the left, here arr[4]</span></span>
+<span class="line"><span style="color:#6272A4">        # Step 3: Swap nums[i] and nums[j]</span></span>
+<span class="line"><span style="color:#F8F8F2">        nums[i], nums[j] </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> nums[j], nums[i]</span></span>
+<span class="line"><span style="color:#6272A4">        # arr = [1,2,4,5,3]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6272A4">    # Step 4: Reverse the subarray from index i+1 to the end</span></span>
+<span class="line"><span style="color:#6272A4">    """ in-place reverse """</span></span>
+<span class="line"><span style="color:#F8F8F2">    left, right </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> i </span><span style="color:#FF79C6">+</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">, </span><span style="color:#8BE9FD">len</span><span style="color:#F8F8F2">(nums) </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">    while</span><span style="color:#F8F8F2"> left </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> right:</span></span>
+<span class="line"><span style="color:#F8F8F2">        nums[left], nums[right] </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> nums[right], nums[left]</span></span>
+<span class="line"><span style="color:#F8F8F2">        left </span><span style="color:#FF79C6">+=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#F8F8F2">        right </span><span style="color:#FF79C6">-=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#6272A4">    """</span></span>
+<span class="line"><span style="color:#6272A4">    ' uses extra space  '</span></span>
+<span class="line"><span style="color:#6272A4">    nums[i+1:] = reversed(nums[i+1:])</span></span>
+<span class="line"><span style="color:#6272A4">    """</span></span>
+<span class="line"><span style="color:#6272A4">    # arr = [1,2,4,3,5]</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<h5 id="combination-without-replacement--unordered-without-replacement--subsets">Combination without Replacement | Unordered without Replacement | Subsets</h5>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6272A4">""" Generate all subsets of a set of numbers """</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> enumerator</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">slate</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">solution</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">outputs</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> slate:</span></span>
+<span class="line"><span style="color:#F8F8F2">        nxt </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> slate[</span><span style="color:#FF79C6">-</span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">]</span></span>
+<span class="line"><span style="color:#F8F8F2">        enumerator(slate[</span><span style="color:#FF79C6">:-</span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">], solution </span><span style="color:#FF79C6">+</span><span style="color:#F8F8F2"> [nxt], outputs)</span></span>
+<span class="line"><span style="color:#F8F8F2">        enumerator(slate[</span><span style="color:#FF79C6">:-</span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">], solution, outputs)</span></span>
+<span class="line"><span style="color:#6272A4">        # no need to reset slate since</span></span>
+<span class="line"><span style="color:#6272A4">        # all we do is pass a subset of the slate to the next call</span></span>
+<span class="line"><span style="color:#6272A4">        # we don't actually edit the slate</span></span>
+<span class="line"><span style="color:#FF79C6">    else</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">        outputs.append(</span><span style="color:#8BE9FD;font-style:italic">tuple</span><span style="color:#F8F8F2">(solution))</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> generate_all_subsets</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">s</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">    outputs </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> []</span></span>
+<span class="line"><span style="color:#F8F8F2">    enumerator(s[</span><span style="color:#FF79C6">::-</span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">], [], outputs)</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> outputs</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6272A4">""" Generate all subsets of a set of numbers using a set based implementation"""</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> enumerator</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">slate</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">solution</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">outputs</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> slate:</span></span>
+<span class="line"><span style="color:#F8F8F2">        nxt </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> slate.pop()</span></span>
+<span class="line"><span style="color:#F8F8F2">        enumerator(slate, solution </span><span style="color:#FF79C6">+</span><span style="color:#F8F8F2"> [nxt], outputs)</span></span>
+<span class="line"><span style="color:#F8F8F2">        enumerator(slate, solution, outputs)</span></span>
+<span class="line"><span style="color:#F8F8F2">        slate.add(nxt)</span></span>
+<span class="line"><span style="color:#FF79C6">    else</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">        outputs.append(</span><span style="color:#8BE9FD;font-style:italic">tuple</span><span style="color:#F8F8F2">(solution))</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> generate_all_subsets</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">s</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">    outputs </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> []</span></span>
+<span class="line"><span style="color:#F8F8F2">    enumerator(</span><span style="color:#8BE9FD;font-style:italic">set</span><span style="color:#F8F8F2">(s[</span><span style="color:#FF79C6">::-</span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">]), [], outputs)</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> outputs</span></span>
+<span class="line"></span></code></pre>
+<h5 id="combinations-with-replacement--from-n-bins-choose-k-objects">Combinations with Replacement | from <code>n</code> bins choose <code>k</code> objects</h5>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6272A4">"""</span></span>
+<span class="line"><span style="color:#6272A4">Select a group of k objects from n bins.</span></span>
+<span class="line"><span style="color:#6272A4">Each bin contains multiple copies of the same kind of object.</span></span>
+<span class="line"><span style="color:#6272A4">"""</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> combinations_with_replacement</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">elements</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">r</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> r </span><span style="color:#FF79C6">==</span><span style="color:#BD93F9"> 0</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#F8F8F2"> [[]]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F8F8F2">    result </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> []</span></span>
+<span class="line"><span style="color:#FF79C6">    for</span><span style="color:#F8F8F2"> i, element </span><span style="color:#FF79C6">in</span><span style="color:#8BE9FD"> enumerate</span><span style="color:#F8F8F2">(elements):</span></span>
+<span class="line"><span style="color:#F8F8F2">        sub_combinations </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> combinations_with_replacement(elements[i</span><span style="color:#FF79C6">:</span><span style="color:#F8F8F2">], r </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#FF79C6">        for</span><span style="color:#F8F8F2"> sub_combination </span><span style="color:#FF79C6">in</span><span style="color:#F8F8F2"> sub_combinations:</span></span>
+<span class="line"><span style="color:#F8F8F2">            result.append([element] </span><span style="color:#FF79C6">+</span><span style="color:#F8F8F2"> sub_combination)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> result</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6272A4">""" All combinations with repetition of len==k of range(0,n) """</span></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> combine</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">n</span><span style="color:#FF79C6">:</span><span style="color:#8BE9FD;font-style:italic"> int</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">k</span><span style="color:#FF79C6">:</span><span style="color:#8BE9FD;font-style:italic"> int</span><span style="color:#F8F8F2">) </span><span style="color:#FF79C6">-></span><span style="color:#F8F8F2"> List[List[</span><span style="color:#8BE9FD;font-style:italic">int</span><span style="color:#F8F8F2">]]:</span></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#50FA7B"> backtrack</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">start</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">path</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">result</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#8BE9FD"> len</span><span style="color:#F8F8F2">(path)</span><span style="color:#FF79C6">==</span><span style="color:#F8F8F2">k:  </span><span style="color:#6272A4"># If target becomes negative, stop recursion</span></span>
+<span class="line"><span style="color:#FF79C6">            return</span><span style="color:#F8F8F2"> result </span><span style="color:#FF79C6">+</span><span style="color:#F8F8F2"> [path]</span></span>
+<span class="line"><span style="color:#FF79C6">        for</span><span style="color:#F8F8F2"> i </span><span style="color:#FF79C6">in</span><span style="color:#8BE9FD"> range</span><span style="color:#F8F8F2">(start, n):</span></span>
+<span class="line"><span style="color:#6272A4">            # Explore all combinations starting from the current index</span></span>
+<span class="line"><span style="color:#F8F8F2">            result </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> backtrack(i, path </span><span style="color:#FF79C6">+</span><span style="color:#F8F8F2"> [i], result)</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#F8F8F2"> result</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F8F8F2">    result </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> backtrack(</span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">, [], [])</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> result</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6272A4">""" Without repetition  """</span></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> combine</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">n</span><span style="color:#FF79C6">:</span><span style="color:#8BE9FD;font-style:italic"> int</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">k</span><span style="color:#FF79C6">:</span><span style="color:#8BE9FD;font-style:italic"> int</span><span style="color:#F8F8F2">) </span><span style="color:#FF79C6">-></span><span style="color:#F8F8F2"> List[List[</span><span style="color:#8BE9FD;font-style:italic">int</span><span style="color:#F8F8F2">]]:</span></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#50FA7B"> backtrack</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">start</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">path</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">result</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#8BE9FD"> len</span><span style="color:#F8F8F2">(path)</span><span style="color:#FF79C6">==</span><span style="color:#F8F8F2">k:  </span><span style="color:#6272A4"># If target becomes negative, stop recursion</span></span>
+<span class="line"><span style="color:#FF79C6">            return</span><span style="color:#F8F8F2"> result </span><span style="color:#FF79C6">+</span><span style="color:#F8F8F2"> [path]</span></span>
+<span class="line"><span style="color:#FF79C6">        for</span><span style="color:#F8F8F2"> i </span><span style="color:#FF79C6">in</span><span style="color:#8BE9FD"> range</span><span style="color:#F8F8F2">(start, n):</span></span>
+<span class="line"><span style="color:#6272A4">            # Explore all combinations starting from the current index</span></span>
+<span class="line"><span style="color:#F8F8F2">            result </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> backtrack(i, path </span><span style="color:#FF79C6">+</span><span style="color:#F8F8F2"> [i], result)</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#F8F8F2"> result</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F8F8F2">    result </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> backtrack(</span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">, [], [])</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> result</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<h2 id="trees">Trees</h2>
+<h3 id="tree-traversal">Tree Traversal</h3>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> bfs_binary_tree</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">root</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">    q </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> deque([root])</span></span>
+<span class="line"><span style="color:#F8F8F2">    values </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> []</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    while</span><span style="color:#F8F8F2"> q:</span></span>
+<span class="line"><span style="color:#F8F8F2">        values.append([])</span></span>
+<span class="line"><span style="color:#6272A4">        # len(q) = number of nodes in the current level</span></span>
+<span class="line"><span style="color:#FF79C6">        for</span><span style="color:#F8F8F2"> _ </span><span style="color:#FF79C6">in</span><span style="color:#8BE9FD"> range</span><span style="color:#F8F8F2">(</span><span style="color:#8BE9FD">len</span><span style="color:#F8F8F2">(q)):</span></span>
+<span class="line"><span style="color:#F8F8F2">            current </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> q.popleft()</span></span>
+<span class="line"><span style="color:#F8F8F2">            values[</span><span style="color:#FF79C6">-</span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">].append(current.value)</span></span>
+<span class="line"><span style="color:#FF79C6">            if</span><span style="color:#F8F8F2"> current.left:</span></span>
+<span class="line"><span style="color:#F8F8F2">                q.append(current.left)</span></span>
+<span class="line"><span style="color:#FF79C6">            if</span><span style="color:#F8F8F2"> current.right:</span></span>
+<span class="line"><span style="color:#F8F8F2">                q.append(current.right)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> values</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">from</span><span style="color:#F8F8F2"> collections </span><span style="color:#FF79C6">import</span><span style="color:#F8F8F2"> deque</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> bfs_n_ary_tree</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">root</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">    q </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> deque([root])</span></span>
+<span class="line"><span style="color:#F8F8F2">    values </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> []</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    while</span><span style="color:#F8F8F2"> q:</span></span>
+<span class="line"><span style="color:#F8F8F2">        values.append([])</span></span>
+<span class="line"><span style="color:#F8F8F2">        nodes_counter </span><span style="color:#FF79C6">=</span><span style="color:#8BE9FD"> len</span><span style="color:#F8F8F2">(q)</span></span>
+<span class="line"><span style="color:#FF79C6">        for</span><span style="color:#F8F8F2"> _ </span><span style="color:#FF79C6">in</span><span style="color:#8BE9FD"> range</span><span style="color:#F8F8F2">(nodes_counter):</span></span>
+<span class="line"><span style="color:#F8F8F2">            current </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> q.popleft()</span></span>
+<span class="line"><span style="color:#F8F8F2">            values[</span><span style="color:#FF79C6">-</span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">].append(current.value)</span></span>
+<span class="line"><span style="color:#FF79C6">            for</span><span style="color:#F8F8F2"> child </span><span style="color:#FF79C6">in</span><span style="color:#F8F8F2"> current.children:</span></span>
+<span class="line"><span style="color:#F8F8F2">                q.append(child)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> values</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> dfs</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">root</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">    values </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> []</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#50FA7B"> traverse</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">root</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">values</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#F8F8F2"> root:</span></span>
+<span class="line"><span style="color:#6272A4">          # 1 if pre-order -> values.append(root)</span></span>
+<span class="line"><span style="color:#FF79C6">          if</span><span style="color:#F8F8F2"> root.left: traverse(root.left, values)</span></span>
+<span class="line"><span style="color:#6272A4">          # 2 if in-order: -> values.append(root)</span></span>
+<span class="line"><span style="color:#FF79C6">          if</span><span style="color:#F8F8F2"> root.right: traverse(root.right, values)</span></span>
+<span class="line"><span style="color:#6272A4">          # 3 if post-order -> values.append(root)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F8F8F2">    traverse(root, values)</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> values</span></span>
+<span class="line"></span></code></pre>
+<h4 id="dfs---bottom-up-information-flow">DFS - Bottom Up Information Flow</h4>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> lowestCommonAncestor</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">root</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">p</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">q</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#50FA7B"> dfs</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">root</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">a</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">b</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#6272A4">        # base case</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#F8F8F2"> root </span><span style="color:#FF79C6">in</span><span style="color:#F8F8F2"> [a, b, </span><span style="color:#BD93F9">None</span><span style="color:#F8F8F2">]:</span></span>
+<span class="line"><span style="color:#FF79C6">            return</span><span style="color:#F8F8F2"> root</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6272A4">        # recursive step</span></span>
+<span class="line"><span style="color:#F8F8F2">        l </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> dfs(root.left, a, b)</span></span>
+<span class="line"><span style="color:#F8F8F2">        r </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> dfs(root.right, a, b)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6272A4">        # Post-Order traversal after information retrieval from children.</span></span>
+<span class="line"><span style="color:#6272A4">        # We're looking for either p or, which are unique in the tree.</span></span>
+<span class="line"><span style="color:#6272A4">        # It's unecessary to know which one was found.</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#F8F8F2"> l </span><span style="color:#FF79C6">and</span><span style="color:#F8F8F2"> r:</span></span>
+<span class="line"><span style="color:#FF79C6">            return</span><span style="color:#F8F8F2"> root</span></span>
+<span class="line"><span style="color:#FF79C6">        elif</span><span style="color:#F8F8F2"> l:</span></span>
+<span class="line"><span style="color:#FF79C6">            return</span><span style="color:#F8F8F2"> l</span></span>
+<span class="line"><span style="color:#FF79C6">        else</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#FF79C6">            return</span><span style="color:#F8F8F2"> r</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> dfs(root, p, q)</span></span>
+<span class="line"></span></code></pre>
+<h3 id="bst">BST</h3>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">class</span><span style="color:#8BE9FD"> TreeNode</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#BD93F9"> __init__</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">val</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.val </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> val</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.left </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> None</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.right </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> None</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">class</span><span style="color:#8BE9FD"> BST</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#BD93F9"> __init__</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.root </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> None</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#50FA7B"> insert</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">val</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#FF79C6"> not</span><span style="color:#BD93F9;font-style:italic"> self</span><span style="color:#F8F8F2">.root:</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">            self</span><span style="color:#F8F8F2">.root </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> TreeNode(val)</span></span>
+<span class="line"><span style="color:#FF79C6">        else</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">            self</span><span style="color:#F8F8F2">._insert(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">.root, val)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#50FA7B"> _insert</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">node</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">val</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#F8F8F2"> val </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> node.val:</span></span>
+<span class="line"><span style="color:#FF79C6">            if</span><span style="color:#FF79C6"> not</span><span style="color:#F8F8F2"> node.left:</span></span>
+<span class="line"><span style="color:#F8F8F2">                node.left </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> TreeNode(val)</span></span>
+<span class="line"><span style="color:#FF79C6">            else</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">                self</span><span style="color:#F8F8F2">._insert(node.left, val)</span></span>
+<span class="line"><span style="color:#FF79C6">        elif</span><span style="color:#F8F8F2"> val </span><span style="color:#FF79C6">></span><span style="color:#F8F8F2"> node.val:</span></span>
+<span class="line"><span style="color:#FF79C6">            if</span><span style="color:#FF79C6"> not</span><span style="color:#F8F8F2"> node.right:</span></span>
+<span class="line"><span style="color:#F8F8F2">                node.right </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> TreeNode(val)</span></span>
+<span class="line"><span style="color:#FF79C6">            else</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">                self</span><span style="color:#F8F8F2">._insert(node.right, val)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#50FA7B"> search</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">val</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#BD93F9;font-style:italic"> self</span><span style="color:#F8F8F2">._search(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">.root, val)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#50FA7B"> _search</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">node</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">val</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#FF79C6"> not</span><span style="color:#F8F8F2"> node:</span></span>
+<span class="line"><span style="color:#FF79C6">            return</span><span style="color:#BD93F9"> False</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#F8F8F2"> val </span><span style="color:#FF79C6">==</span><span style="color:#F8F8F2"> node.val:</span></span>
+<span class="line"><span style="color:#FF79C6">            return</span><span style="color:#BD93F9"> True</span></span>
+<span class="line"><span style="color:#FF79C6">        elif</span><span style="color:#F8F8F2"> val </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> node.val:</span></span>
+<span class="line"><span style="color:#FF79C6">            return</span><span style="color:#BD93F9;font-style:italic"> self</span><span style="color:#F8F8F2">._search(node.left, val)</span></span>
+<span class="line"><span style="color:#FF79C6">        else</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#FF79C6">            return</span><span style="color:#BD93F9;font-style:italic"> self</span><span style="color:#F8F8F2">._search(node.right, val)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#50FA7B"> predecessor</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">val</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">        pred </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> None</span></span>
+<span class="line"><span style="color:#F8F8F2">        node </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9;font-style:italic"> self</span><span style="color:#F8F8F2">.root</span></span>
+<span class="line"><span style="color:#FF79C6">        while</span><span style="color:#F8F8F2"> node:</span></span>
+<span class="line"><span style="color:#FF79C6">            if</span><span style="color:#F8F8F2"> node.val </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> val:</span></span>
+<span class="line"><span style="color:#F8F8F2">                pred </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> node.val</span></span>
+<span class="line"><span style="color:#F8F8F2">                node </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> node.right</span></span>
+<span class="line"><span style="color:#FF79C6">            else</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">                node </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> node.left</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#F8F8F2"> pred</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#50FA7B"> successor</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">val</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">        succ </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> None</span></span>
+<span class="line"><span style="color:#F8F8F2">        node </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9;font-style:italic"> self</span><span style="color:#F8F8F2">.root</span></span>
+<span class="line"><span style="color:#FF79C6">        while</span><span style="color:#F8F8F2"> node:</span></span>
+<span class="line"><span style="color:#FF79C6">            if</span><span style="color:#F8F8F2"> node.val </span><span style="color:#FF79C6">></span><span style="color:#F8F8F2"> val:</span></span>
+<span class="line"><span style="color:#F8F8F2">                succ </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> node.val</span></span>
+<span class="line"><span style="color:#F8F8F2">                node </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> node.left</span></span>
+<span class="line"><span style="color:#FF79C6">            else</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">                node </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> node.right</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#F8F8F2"> succ</span></span>
+<span class="line"></span></code></pre>
+<h2 id="graphs">Graphs</h2>
+<h3 id="representations">Representations</h3>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> edge_list_to_adjacency_list</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">edge_list</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">undirected</span><span style="color:#FF79C6">=</span><span style="color:#BD93F9">True</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">    adjacency_list </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> {}</span></span>
+<span class="line"><span style="color:#FF79C6">    for</span><span style="color:#F8F8F2"> edge </span><span style="color:#FF79C6">in</span><span style="color:#F8F8F2"> edge_list:</span></span>
+<span class="line"><span style="color:#F8F8F2">        v1, v2 </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> edge</span></span>
+<span class="line"><span style="color:#F8F8F2">        adjacency_list.setdefault(v1, []).append(v2)</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#F8F8F2"> undirected:</span></span>
+<span class="line"><span style="color:#F8F8F2">            adjacency_list.setdefault(v2, []).append(v1)</span></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> adjacency_list</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> edge_list_to_adjacency_matrix</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">edge_list</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">num_vertices</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#6272A4">    """Edge ids go from 1 to n."""</span></span>
+<span class="line"><span style="color:#F8F8F2">    matrix </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> [[</span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">] </span><span style="color:#FF79C6">*</span><span style="color:#F8F8F2"> num_vertices </span><span style="color:#FF79C6">for</span><span style="color:#F8F8F2"> _ </span><span style="color:#FF79C6">in</span><span style="color:#8BE9FD"> range</span><span style="color:#F8F8F2">(num_vertices)]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    for</span><span style="color:#F8F8F2"> v1, v2 </span><span style="color:#FF79C6">in</span><span style="color:#F8F8F2"> edge_list:</span></span>
+<span class="line"><span style="color:#6272A4">        """edge 1, 2 is stored at 0,1"""</span></span>
+<span class="line"><span style="color:#F8F8F2">        matrix[v1 </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">][v2 </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">] </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#F8F8F2">        matrix[v2 </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">][v1 </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">] </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    return</span><span style="color:#F8F8F2"> matrix</span></span>
+<span class="line"></span></code></pre>
+<h4 id="grid-representation">Grid Representation</h4>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> get_neighbors</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">matrix</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">row</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">col</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">    n_rows, n_cols </span><span style="color:#FF79C6">=</span><span style="color:#8BE9FD"> len</span><span style="color:#F8F8F2">(matrix), </span><span style="color:#8BE9FD">len</span><span style="color:#F8F8F2">(matrix[</span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">])</span></span>
+<span class="line"><span style="color:#F8F8F2">    offsets </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> [</span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">, </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    for</span><span style="color:#F8F8F2"> a </span><span style="color:#FF79C6">in</span><span style="color:#F8F8F2"> offsets:</span></span>
+<span class="line"><span style="color:#FF79C6">        for</span><span style="color:#F8F8F2"> b </span><span style="color:#FF79C6">in</span><span style="color:#F8F8F2"> offsets:</span></span>
+<span class="line"><span style="color:#F8F8F2">            i, j </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> row </span><span style="color:#FF79C6">+</span><span style="color:#F8F8F2"> a, col </span><span style="color:#FF79C6">+</span><span style="color:#F8F8F2"> b</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6272A4">            # Are the new coordinates within the boundaries?</span></span>
+<span class="line"><span style="color:#FF79C6">            if</span><span style="color:#BD93F9"> 0</span><span style="color:#FF79C6"> &#x3C;=</span><span style="color:#F8F8F2"> i </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> n_rows </span><span style="color:#FF79C6">and</span><span style="color:#BD93F9"> 0</span><span style="color:#FF79C6"> &#x3C;=</span><span style="color:#F8F8F2"> j </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> n_cols </span><span style="color:#FF79C6">and</span><span style="color:#F8F8F2"> (a </span><span style="color:#FF79C6">!=</span><span style="color:#BD93F9"> 0</span><span style="color:#FF79C6"> or</span><span style="color:#F8F8F2"> b </span><span style="color:#FF79C6">!=</span><span style="color:#BD93F9"> 0</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#6272A4">                # Check (i, j) is non-zero (0 represents no in/out edges).</span></span>
+<span class="line"><span style="color:#FF79C6">                if</span><span style="color:#F8F8F2"> matrix[i][j] </span><span style="color:#FF79C6">!=</span><span style="color:#BD93F9"> 0</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#FF79C6">                    yield</span><span style="color:#F8F8F2"> (i, j)</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">from</span><span style="color:#F8F8F2"> typing </span><span style="color:#FF79C6">import</span><span style="color:#F8F8F2"> List</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">class</span><span style="color:#8BE9FD"> Solution</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#50FA7B"> pacificAtlantic</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">heights</span><span style="color:#FF79C6">:</span><span style="color:#F8F8F2"> List[List[</span><span style="color:#8BE9FD;font-style:italic">int</span><span style="color:#F8F8F2">]]) </span><span style="color:#FF79C6">-></span><span style="color:#F8F8F2"> List[List[</span><span style="color:#8BE9FD;font-style:italic">int</span><span style="color:#F8F8F2">]]:</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#FF79C6"> not</span><span style="color:#F8F8F2"> heights </span><span style="color:#FF79C6">or</span><span style="color:#FF79C6"> not</span><span style="color:#F8F8F2"> heights[</span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">]:</span></span>
+<span class="line"><span style="color:#FF79C6">            return</span><span style="color:#F8F8F2"> []</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F8F8F2">        nrows, ncols </span><span style="color:#FF79C6">=</span><span style="color:#8BE9FD"> len</span><span style="color:#F8F8F2">(heights), </span><span style="color:#8BE9FD">len</span><span style="color:#F8F8F2">(heights[</span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">])</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">        def</span><span style="color:#50FA7B"> dfs</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">node</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">visited</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">            visited.add(node)</span></span>
+<span class="line"><span style="color:#F8F8F2">            x, y </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> node</span></span>
+<span class="line"><span style="color:#FF79C6">            for</span><span style="color:#F8F8F2"> dx, dy </span><span style="color:#FF79C6">in</span><span style="color:#F8F8F2"> [(</span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">), (</span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">, </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">), (</span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">), (</span><span style="color:#FF79C6">-</span><span style="color:#BD93F9">1</span><span style="color:#F8F8F2">, </span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">)]:</span></span>
+<span class="line"><span style="color:#F8F8F2">                nx, ny </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> x </span><span style="color:#FF79C6">+</span><span style="color:#F8F8F2"> dx, y </span><span style="color:#FF79C6">+</span><span style="color:#F8F8F2"> dy</span></span>
+<span class="line"><span style="color:#FF79C6">                if</span><span style="color:#F8F8F2"> (</span></span>
+<span class="line"><span style="color:#BD93F9">                        0</span><span style="color:#FF79C6"> &#x3C;=</span><span style="color:#F8F8F2"> nx </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> nrows </span><span style="color:#6272A4"># row is in bounds</span></span>
+<span class="line"><span style="color:#FF79C6">                        and</span><span style="color:#BD93F9"> 0</span><span style="color:#FF79C6"> &#x3C;=</span><span style="color:#F8F8F2"> ny </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> ncols </span><span style="color:#6272A4"># column is in bounds</span></span>
+<span class="line"><span style="color:#FF79C6">                        and</span><span style="color:#F8F8F2"> (nx, ny) </span><span style="color:#FF79C6">not</span><span style="color:#FF79C6"> in</span><span style="color:#F8F8F2"> visited </span><span style="color:#6272A4"># node is unvisited</span></span>
+<span class="line"><span style="color:#FF79C6">                        and</span><span style="color:#F8F8F2"> heights[nx][ny] </span><span style="color:#FF79C6">>=</span><span style="color:#F8F8F2"> heights[x][y]</span></span>
+<span class="line"><span style="color:#F8F8F2">                    ):</span></span>
+<span class="line"><span style="color:#F8F8F2">                    visited </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> visited </span><span style="color:#FF79C6">|</span><span style="color:#F8F8F2"> dfs((nx, ny), visited)</span></span>
+<span class="line"><span style="color:#FF79C6">            return</span><span style="color:#F8F8F2"> visited</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F8F8F2">        pacific </span><span style="color:#FF79C6">=</span><span style="color:#8BE9FD;font-style:italic"> set</span><span style="color:#F8F8F2">()</span></span>
+<span class="line"><span style="color:#F8F8F2">        atlantic </span><span style="color:#FF79C6">=</span><span style="color:#8BE9FD;font-style:italic"> set</span><span style="color:#F8F8F2">()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">        for</span><span style="color:#F8F8F2"> i </span><span style="color:#FF79C6">in</span><span style="color:#8BE9FD"> range</span><span style="color:#F8F8F2">(nrows):</span></span>
+<span class="line"><span style="color:#6272A4">            # first column</span></span>
+<span class="line"><span style="color:#F8F8F2">            pacific </span><span style="color:#FF79C6">|=</span><span style="color:#F8F8F2"> dfs((i, </span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">), </span><span style="color:#8BE9FD;font-style:italic">set</span><span style="color:#F8F8F2">())</span></span>
+<span class="line"><span style="color:#6272A4">            # last column</span></span>
+<span class="line"><span style="color:#F8F8F2">            atlantic </span><span style="color:#FF79C6">|=</span><span style="color:#F8F8F2"> dfs((i, ncols </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">), </span><span style="color:#8BE9FD;font-style:italic">set</span><span style="color:#F8F8F2">())</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">        for</span><span style="color:#F8F8F2"> j </span><span style="color:#FF79C6">in</span><span style="color:#8BE9FD"> range</span><span style="color:#F8F8F2">(ncols):</span></span>
+<span class="line"><span style="color:#6272A4">            # first row</span></span>
+<span class="line"><span style="color:#F8F8F2">            pacific </span><span style="color:#FF79C6">|=</span><span style="color:#F8F8F2"> dfs((</span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">, j), </span><span style="color:#8BE9FD;font-style:italic">set</span><span style="color:#F8F8F2">())</span></span>
+<span class="line"><span style="color:#6272A4">            # last row</span></span>
+<span class="line"><span style="color:#F8F8F2">            atlantic </span><span style="color:#FF79C6">|=</span><span style="color:#F8F8F2"> dfs((nrows </span><span style="color:#FF79C6">-</span><span style="color:#BD93F9"> 1</span><span style="color:#F8F8F2">, j), </span><span style="color:#8BE9FD;font-style:italic">set</span><span style="color:#F8F8F2">())</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#8BE9FD;font-style:italic"> list</span><span style="color:#F8F8F2">(pacific </span><span style="color:#FF79C6">&#x26;</span><span style="color:#F8F8F2"> atlantic)</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<h3 id="graph-traversal">Graph Traversal</h3>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F8F8F2">visited </span><span style="color:#FF79C6">=</span><span style="color:#8BE9FD;font-style:italic"> set</span><span style="color:#F8F8F2">()</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> dfs</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">graph</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">node</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">visited</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#FF79C6">    if</span><span style="color:#F8F8F2"> node </span><span style="color:#FF79C6">not</span><span style="color:#FF79C6"> in</span><span style="color:#F8F8F2"> visited:</span></span>
+<span class="line"><span style="color:#8BE9FD">        print</span><span style="color:#F8F8F2">(node)</span></span>
+<span class="line"><span style="color:#F8F8F2">        visited.add(node)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">        for</span><span style="color:#F8F8F2"> neighbor </span><span style="color:#FF79C6">in</span><span style="color:#F8F8F2"> graph[node]:</span></span>
+<span class="line"><span style="color:#F8F8F2">            dfs(graph, neighbor, visited)</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#FF79C6">from</span><span style="color:#F8F8F2"> collections </span><span style="color:#FF79C6">import</span><span style="color:#F8F8F2"> deque</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> bfs</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">graph</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">start</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">    visited </span><span style="color:#FF79C6">=</span><span style="color:#8BE9FD;font-style:italic"> set</span><span style="color:#F8F8F2">()</span></span>
+<span class="line"><span style="color:#F8F8F2">    queue </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> deque([start])</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    while</span><span style="color:#F8F8F2"> queue:</span></span>
+<span class="line"><span style="color:#F8F8F2">        current </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> queue.popleft()</span></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#F8F8F2"> current </span><span style="color:#FF79C6">not</span><span style="color:#FF79C6"> in</span><span style="color:#F8F8F2"> visited:</span></span>
+<span class="line"><span style="color:#8BE9FD">            print</span><span style="color:#F8F8F2">(current)</span></span>
+<span class="line"><span style="color:#F8F8F2">            visited.add(current)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6272A4">            # Enqueue unvisited neighbors</span></span>
+<span class="line"><span style="color:#FF79C6">            for</span><span style="color:#F8F8F2"> neighbor </span><span style="color:#FF79C6">in</span><span style="color:#F8F8F2"> graph[current]:</span></span>
+<span class="line"><span style="color:#FF79C6">                if</span><span style="color:#F8F8F2"> neighbor </span><span style="color:#FF79C6">not</span><span style="color:#FF79C6"> in</span><span style="color:#F8F8F2"> visited:</span></span>
+<span class="line"><span style="color:#F8F8F2">                    queue.extend(neighbor)</span></span>
+<span class="line"></span></code></pre>
+<h3 id="topsort">TopSort</h3>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#6272A4">""" Returns if the graph is cyclic, i.e. not a DAG. """</span></span>
+<span class="line"><span style="color:#FF79C6">from</span><span style="color:#F8F8F2"> collections </span><span style="color:#FF79C6">import</span><span style="color:#F8F8F2"> deque, defaultdict</span></span>
+<span class="line"><span style="color:#FF79C6">from</span><span style="color:#F8F8F2"> typing </span><span style="color:#FF79C6">import</span><span style="color:#F8F8F2"> List</span></span>
+<span class="line"><span style="color:#FF79C6">def</span><span style="color:#50FA7B"> top_sort</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">numCourses</span><span style="color:#FF79C6">:</span><span style="color:#8BE9FD;font-style:italic"> int</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">prerequisites</span><span style="color:#FF79C6">:</span><span style="color:#F8F8F2"> List[List[</span><span style="color:#8BE9FD;font-style:italic">int</span><span style="color:#F8F8F2">]]) </span><span style="color:#FF79C6">-></span><span style="color:#8BE9FD;font-style:italic"> bool</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#6272A4">        # Build adjacency list and in-degrees</span></span>
+<span class="line"><span style="color:#F8F8F2">        adj_list </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> defaultdict(</span><span style="color:#8BE9FD;font-style:italic">list</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#F8F8F2">        in_degrees </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> [</span><span style="color:#BD93F9">0</span><span style="color:#F8F8F2">] </span><span style="color:#FF79C6">*</span><span style="color:#F8F8F2"> numCourses</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">        for</span><span style="color:#F8F8F2"> course, prereq </span><span style="color:#FF79C6">in</span><span style="color:#F8F8F2"> prerequisites:</span></span>
+<span class="line"><span style="color:#F8F8F2">            adj_list[prereq].append(course)</span></span>
+<span class="line"><span style="color:#F8F8F2">            in_degrees[course] </span><span style="color:#FF79C6">+=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6272A4">        # Initialize a queue with nodes having in-degree 0</span></span>
+<span class="line"><span style="color:#F8F8F2">        queue </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> deque([node </span><span style="color:#FF79C6">for</span><span style="color:#F8F8F2"> node </span><span style="color:#FF79C6">in</span><span style="color:#8BE9FD"> range</span><span style="color:#F8F8F2">(numCourses) </span><span style="color:#FF79C6">if</span><span style="color:#F8F8F2"> in_degrees[node] </span><span style="color:#FF79C6">==</span><span style="color:#BD93F9"> 0</span><span style="color:#F8F8F2">])</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6272A4">        # Perform BFS</span></span>
+<span class="line"><span style="color:#FF79C6">        while</span><span style="color:#F8F8F2"> queue:</span></span>
+<span class="line"><span style="color:#F8F8F2">            current </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> queue.popleft()</span></span>
+<span class="line"><span style="color:#FF79C6">            for</span><span style="color:#F8F8F2"> neighbor </span><span style="color:#FF79C6">in</span><span style="color:#F8F8F2"> adj_list[current]:</span></span>
+<span class="line"><span style="color:#F8F8F2">                in_degrees[neighbor] </span><span style="color:#FF79C6">-=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">                if</span><span style="color:#F8F8F2"> in_degrees[neighbor] </span><span style="color:#FF79C6">==</span><span style="color:#BD93F9"> 0</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">                    queue.append(neighbor)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6272A4">        # If there are still nodes with in-degree > 0, there is a cycle</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#8BE9FD"> sum</span><span style="color:#F8F8F2">(in_degrees) </span><span style="color:#FF79C6">==</span><span style="color:#BD93F9"> 0</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"></span>
+<span class="line"><span style="color:#6272A4">""" Topological sorting of a graph if the graph is a DAG. """</span></span>
+<span class="line"><span style="color:#FF79C6">from</span><span style="color:#F8F8F2"> collections </span><span style="color:#FF79C6">import</span><span style="color:#F8F8F2"> defaultdict, deque</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">class</span><span style="color:#8BE9FD"> Solution</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#50FA7B"> findOrder</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">numCourses</span><span style="color:#FF79C6">:</span><span style="color:#8BE9FD;font-style:italic"> int</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">prerequisites</span><span style="color:#FF79C6">:</span><span style="color:#F8F8F2"> List[List[</span><span style="color:#8BE9FD;font-style:italic">int</span><span style="color:#F8F8F2">]]) </span><span style="color:#FF79C6">-></span><span style="color:#F8F8F2"> List[</span><span style="color:#8BE9FD;font-style:italic">int</span><span style="color:#F8F8F2">]:</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">        def</span><span style="color:#50FA7B"> build_adj_indegrees</span><span style="color:#F8F8F2">(</span><span style="color:#FFB86C;font-style:italic">prerequisites</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#F8F8F2">            adj_list </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> defaultdict(</span><span style="color:#8BE9FD;font-style:italic">list</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#F8F8F2">            indegree </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> defaultdict(</span><span style="color:#8BE9FD;font-style:italic">int</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#FF79C6">            for</span><span style="color:#F8F8F2"> course, prereq </span><span style="color:#FF79C6">in</span><span style="color:#F8F8F2"> prerequisites:</span></span>
+<span class="line"><span style="color:#F8F8F2">                adj_list[prereq].append(course)</span></span>
+<span class="line"><span style="color:#F8F8F2">                indegree[course] </span><span style="color:#FF79C6">+=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">            return</span><span style="color:#F8F8F2"> adj_list, indegree</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F8F8F2">        adj_list, in_degrees </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> build_adj_indegrees(prerequisites)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F8F8F2">        queue </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> deque(node </span><span style="color:#FF79C6">for</span><span style="color:#F8F8F2"> node </span><span style="color:#FF79C6">in</span><span style="color:#8BE9FD"> range</span><span style="color:#F8F8F2">(numCourses) </span><span style="color:#FF79C6">if</span><span style="color:#F8F8F2"> in_degrees[node] </span><span style="color:#FF79C6">==</span><span style="color:#BD93F9"> 0</span><span style="color:#F8F8F2">)</span></span>
+<span class="line"><span style="color:#F8F8F2">        order </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> []</span></span>
+<span class="line"><span style="color:#F8F8F2">        visited </span><span style="color:#FF79C6">=</span><span style="color:#8BE9FD;font-style:italic"> set</span><span style="color:#F8F8F2">(queue)  </span><span style="color:#6272A4"># Initialize visited with nodes having 0 in-degree</span></span>
+<span class="line"><span style="color:#FF79C6">        while</span><span style="color:#F8F8F2"> queue:</span></span>
+<span class="line"><span style="color:#F8F8F2">            current </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> queue.popleft()</span></span>
+<span class="line"><span style="color:#F8F8F2">            order.append(current)</span></span>
+<span class="line"><span style="color:#FF79C6">            for</span><span style="color:#F8F8F2"> neighbor </span><span style="color:#FF79C6">in</span><span style="color:#F8F8F2"> adj_list[current]:</span></span>
+<span class="line"><span style="color:#F8F8F2">                in_degrees[neighbor] </span><span style="color:#FF79C6">-=</span><span style="color:#BD93F9"> 1</span></span>
+<span class="line"><span style="color:#FF79C6">                if</span><span style="color:#F8F8F2"> in_degrees[neighbor] </span><span style="color:#FF79C6">==</span><span style="color:#BD93F9"> 0</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">                    queue.append(neighbor)</span></span>
+<span class="line"><span style="color:#F8F8F2">                    visited.add(neighbor)  </span><span style="color:#6272A4"># Mark as visited when added to queue</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">        if</span><span style="color:#8BE9FD"> len</span><span style="color:#F8F8F2">(order) </span><span style="color:#FF79C6">&#x3C;</span><span style="color:#F8F8F2"> numCourses:</span></span>
+<span class="line"><span style="color:#FF79C6">            return</span><span style="color:#F8F8F2"> []  </span><span style="color:#6272A4"># Not all courses can be taken</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#F8F8F2"> order</span></span>
+<span class="line"></span></code></pre>
+<h2 id="trie">Trie</h2>
+<pre class="astro-code dracula" style="background-color:#282A36;color:#F8F8F2; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="python"><code><span class="line"></span>
+<span class="line"><span style="color:#FF79C6">class</span><span style="color:#8BE9FD"> TrieNode</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#BD93F9"> __init__</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.children </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> {}</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.is_end_of_word </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> False</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">class</span><span style="color:#8BE9FD"> Trie</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#BD93F9"> __init__</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">):</span></span>
+<span class="line"><span style="color:#BD93F9;font-style:italic">        self</span><span style="color:#F8F8F2">.root </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> TrieNode()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#50FA7B"> insert</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">word</span><span style="color:#FF79C6">:</span><span style="color:#8BE9FD;font-style:italic"> str</span><span style="color:#F8F8F2">) </span><span style="color:#FF79C6">-></span><span style="color:#BD93F9"> None</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">        node </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9;font-style:italic"> self</span><span style="color:#F8F8F2">.root</span></span>
+<span class="line"><span style="color:#FF79C6">        for</span><span style="color:#F8F8F2"> char </span><span style="color:#FF79C6">in</span><span style="color:#F8F8F2"> word:</span></span>
+<span class="line"><span style="color:#FF79C6">            if</span><span style="color:#F8F8F2"> char </span><span style="color:#FF79C6">not</span><span style="color:#FF79C6"> in</span><span style="color:#F8F8F2"> node.children:</span></span>
+<span class="line"><span style="color:#F8F8F2">                node.children[char] </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> TrieNode()</span></span>
+<span class="line"><span style="color:#F8F8F2">            node </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> node.children[char]</span></span>
+<span class="line"><span style="color:#F8F8F2">        node.is_end_of_word </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9"> True</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#50FA7B"> search</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">word</span><span style="color:#FF79C6">:</span><span style="color:#8BE9FD;font-style:italic"> str</span><span style="color:#F8F8F2">) </span><span style="color:#FF79C6">-></span><span style="color:#8BE9FD;font-style:italic"> bool</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">        node </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9;font-style:italic"> self</span><span style="color:#F8F8F2">.root</span></span>
+<span class="line"><span style="color:#FF79C6">        for</span><span style="color:#F8F8F2"> char </span><span style="color:#FF79C6">in</span><span style="color:#F8F8F2"> word:</span></span>
+<span class="line"><span style="color:#FF79C6">            if</span><span style="color:#F8F8F2"> char </span><span style="color:#FF79C6">not</span><span style="color:#FF79C6"> in</span><span style="color:#F8F8F2"> node.children:</span></span>
+<span class="line"><span style="color:#FF79C6">                return</span><span style="color:#BD93F9"> False</span></span>
+<span class="line"><span style="color:#F8F8F2">            node </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> node.children[char]</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#F8F8F2"> node.is_end_of_word</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FF79C6">    def</span><span style="color:#50FA7B"> startsWith</span><span style="color:#F8F8F2">(</span><span style="color:#BD93F9;font-style:italic">self</span><span style="color:#F8F8F2">, </span><span style="color:#FFB86C;font-style:italic">prefix</span><span style="color:#FF79C6">:</span><span style="color:#8BE9FD;font-style:italic"> str</span><span style="color:#F8F8F2">) </span><span style="color:#FF79C6">-></span><span style="color:#8BE9FD;font-style:italic"> bool</span><span style="color:#F8F8F2">:</span></span>
+<span class="line"><span style="color:#F8F8F2">        node </span><span style="color:#FF79C6">=</span><span style="color:#BD93F9;font-style:italic"> self</span><span style="color:#F8F8F2">.root</span></span>
+<span class="line"><span style="color:#FF79C6">        for</span><span style="color:#F8F8F2"> char </span><span style="color:#FF79C6">in</span><span style="color:#F8F8F2"> prefix:</span></span>
+<span class="line"><span style="color:#FF79C6">            if</span><span style="color:#F8F8F2"> char </span><span style="color:#FF79C6">not</span><span style="color:#FF79C6"> in</span><span style="color:#F8F8F2"> node.children:</span></span>
+<span class="line"><span style="color:#FF79C6">                return</span><span style="color:#BD93F9"> False</span></span>
+<span class="line"><span style="color:#F8F8F2">            node </span><span style="color:#FF79C6">=</span><span style="color:#F8F8F2"> node.children[char]</span></span>
+<span class="line"><span style="color:#FF79C6">        return</span><span style="color:#BD93F9"> True</span></span>
+<span class="line"></span></code></pre>  </div> </article> </main> </body></html>

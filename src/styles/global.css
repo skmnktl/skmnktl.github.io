@@ -1,0 +1,186 @@
+:root {
+  --font-serif: adobe-garamond-pro, Georgia, serif;
+  --font-sans: 'Work Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  /* Light theme */
+  --color-bg: #ffffff;
+  --color-text: #2d3748;
+  --color-text-light: #718096;
+  --color-accent: #3182ce;
+  --color-border: #e2e8f0;
+  --color-code-bg: #f7fafc;
+  
+  /* Dark theme */
+  --color-bg-dark: #1a202c;
+  --color-text-dark: #e2e8f0;
+  --color-text-light-dark: #a0aec0;
+  --color-accent-dark: #63b3ed;
+  --color-border-dark: #2d3748;
+  --color-code-bg-dark: #2d3748;
+}
+
+/* Base styles */
+html {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  line-height: 1.7;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  margin-top: 0;
+  font-weight: 400;
+}
+
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+p {
+  margin: 1.5rem 0;
+}
+
+/* Navigation and UI elements */
+nav, button, input, select, footer {
+  font-family: var(--font-sans);
+}
+
+/* Code blocks */
+pre, code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+pre {
+  padding: 1.25rem;
+  border-radius: 6px;
+  background: var(--color-code-bg);
+  overflow-x: auto;
+}
+
+/* Math typography adjustments */
+.katex {
+  font-size: 1.1em !important;
+}
+
+.katex-display {
+  margin: 2.5rem 0 !important;
+  padding: 0 1rem;
+}
+
+/* Container */
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Links */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-text);
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+li {
+  margin: 0.5rem 0;
+}
+
+/* Blockquotes */
+blockquote {
+  font-family: var(--font-serif);
+  margin: 2rem 0;
+  padding-left: 1.5rem;
+  border-left: 3px solid var(--color-border);
+  font-style: italic;
+  color: var(--color-text-light);
+  font-size: 1.1em;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: var(--color-bg-dark);
+    color: var(--color-text-dark);
+  }
+
+  pre, code {
+    background: var(--color-code-bg-dark);
+  }
+}
+
+
+/* Add to your existing global.css */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.intro {
+  margin: 8rem 0;
+  text-align: center;
+}
+
+.intro h1 {
+  font-family: adobe-garamond-pro, Georgia, serif;
+  font-weight: 400;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+}
+
+.intro p {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1.25rem;
+  color: var(--color-text-light);
+  max-width: 28rem;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .intro {
+    margin: 4rem 0;
+  }
+
+  .intro h1 {
+    font-size: 2.5rem;
+  }
+
+  .intro p {
+    font-size: 1.125rem;
+  }
+}

@@ -1,0 +1,104 @@
+---
+import Header from '../components/Header.astro';
+import '../styles/global.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Photography</title>
+    <link rel="stylesheet" href="https://use.typekit.net/igz8vpp.css">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <Header />
+    <main>
+      <div class="intro">
+        <h1>landscapes & wildlife</h1>
+        <p>I currently shoot with a Z6 and adapter mounted Leica lenses. For wildlife, I'm using the 180-600mm Nikon Z.</p>
+      </div>
+      
+      <div class="gallery-wrapper">
+        <div class="lr_embed" style="position: relative; padding-bottom: 50%; height: 0; overflow: hidden;">
+          <iframe 
+            id="iframe" 
+            src="https://lightroom.adobe.com/embed/shares/b3e2009223fc4ca99690c4443a73fefd/slideshow?background_color=%232D2D2D&color=%23999999" 
+            frameborder="0"
+            style="width:100%; height:100%; position: absolute; top:0; left:0;"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+
+<style>
+  main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .intro {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .intro h1 {
+    font-family: adobe-garamond-pro, Georgia, serif;
+    font-weight: 400;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .intro p {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    max-width: 36rem;
+    margin: 0 auto;
+  }
+
+  .gallery-wrapper {
+    flex: 1;
+    margin: 0 auto 4rem;
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 1rem;
+  }
+
+  .lr_embed {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    background: var(--color-bg);
+  }
+
+  @media (max-width: 768px) {
+    .intro {
+      padding: 3rem 1rem 2rem;
+    }
+
+    .intro h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .gallery-wrapper {
+      margin-bottom: 2rem;
+    }
+  }
+
+  /* Dark mode adjustments */
+  @media (prefers-color-scheme: dark) {
+    .lr_embed {
+      background: #2D2D2D;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+  }
+</style>

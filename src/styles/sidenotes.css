@@ -1,0 +1,102 @@
+/* Base article layout */
+article {
+  position: relative;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Container for main content */
+.content {
+  position: relative;
+}
+
+/* Sidenote styles */
+.sidenote-anchor {
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+}
+
+.sidenote-number {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--color-accent);
+  vertical-align: super;
+  line-height: 0;
+}
+
+.sidenote {
+  display: none;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+/* Desktop styles */
+@media (min-width: 1280px) {
+  .content {
+    padding-right: 1rem;
+  }
+
+  .sidenote {
+    display: block;
+    position: absolute;
+    left: calc(100% + 3rem);
+    width: 250px;
+    margin-top: -1.5rem; /* Adjust this value to align with the reference */
+    padding-left: 1rem;
+    border-left: 2px solid var(--color-border);
+  }
+  
+  .sidenote p {
+    margin: 0;
+  }
+
+  /* Ensure sidenotes don't overlap */
+  .sidenote + .sidenote {
+    margin-top: 1rem;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 1279px) {
+  .sidenote-anchor {
+    cursor: pointer;
+  }
+
+  .sidenote {
+    display: none;
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    background: var(--color-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-border);
+    z-index: 100;
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+
+  .sidenote.show {
+    display: block;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .sidenote {
+    border-left-color: var(--color-border-dark);
+  }
+
+  @media (max-width: 1279px) {
+    .sidenote {
+      background: var(--color-bg-dark);
+      border-color: var(--color-border-dark);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
